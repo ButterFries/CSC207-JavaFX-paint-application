@@ -1,5 +1,5 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: czarnec8
 Oct 28, 2018
 	Yesterday :
 	Today     :
@@ -42,13 +42,13 @@ Nov 4, 2018
 
 Nov 5, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Started user story 5
+	Obstacles : Trying to figure out how to implement the colour selector
 
 Nov 6, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Started user story 5, and looked at how each class interacts with each other. Also checked how button events are handled in the classes. Took a look at user story 6.
+	Today     : Completed user story 5 and pushed it to master. The user can now selected from 5 different colours from the toolbar.
+	Obstacles : Each object would change colours when the user were to pick a new colour since I accidently made the display colour be the colour currently selected, and not the one associated with the object
 
 Nov 7, 2018
 	Yesterday :
