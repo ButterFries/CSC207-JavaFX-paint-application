@@ -1,3 +1,4 @@
+
 package ca.utoronto.utm.paint;
 
 import javafx.event.EventHandler;
@@ -20,7 +21,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Color current_colour = Color.WHITE;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-
+	private boolean fill = false;
+	private int thickness = 1;
+	
 	private Canvas canvas;
 
 	public PaintPanel(PaintModel model, View view) {
@@ -47,7 +50,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		// Clear the canvas
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
-
+		
+		g.setLineWidth(1);
 		g.setStroke(Color.WHITE);
 		g.strokeText("i=" + i, 50, 75);
 		i = i + 1;
@@ -58,6 +62,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point p1 = points.get(i);
 			Point p2 = points.get(i + 1);
 			g.setStroke(p1.getColour());
+			g.setLineWidth(p1.getThickness());
+			
 			g.strokeLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
 		}
 
@@ -68,6 +74,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			int y = c.getCentre().getY() - c.getRadius();
 			int radius = 2*c.getRadius();
 			g.setStroke(c.getColour());
+			g.setLineWidth(c.getThickness());
+			
+			if(c.getFill()) {
+				g.setFill(c.getColour());
+				g.fillOval(x, y, radius, radius);
+			}
 			g.strokeOval(x, y, radius, radius);
 		}
 	}
@@ -88,6 +100,14 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	
 	public void setColour(Color colour) {
 		this.current_colour = colour;
+	}
+	
+	public void setFill(boolean fill) {
+		this.fill = fill;
+	}
+	
+	public void setThickness(int thickness) {
+		this.thickness = thickness;
 	}
 
 	@Override
@@ -120,7 +140,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	private void mouseDragged(MouseEvent e) {
 		if (this.mode == "Squiggle") {
-			this.model.addPoint(new Point((int) e.getX(), (int) e.getY(), current_colour));
+			this.model.addPoint(new Point((int) e.getX(), (int) e.getY(), current_colour, thickness));
 		} else if (this.mode == "Circle") {
 
 		}
@@ -141,7 +161,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
-			this.circle = new Circle(centre, radius, current_colour);
+			this.circle = new Circle(centre, radius, current_colour, fill, thickness);
 		}
 	}
 
