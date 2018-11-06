@@ -1,11 +1,25 @@
 package ca.utoronto.utm.paint;
 
-public class Point {
-	int x, y;
+import javafx.scene.paint.Color;
 
+public class Point {
+	
+	private int x, y;
+	private Color colour = Color.TRANSPARENT;
+	
+	Point(int x, int y, Color colour) {
+		this.x = x;
+		this.y = y;
+		this.colour = colour;
+	}
+	
 	Point(int x, int y) {
 		this.x = x;
 		this.y = y;
+	}
+	
+	public Color getColour() {
+		return colour;
 	}
 
 	public int getX() {

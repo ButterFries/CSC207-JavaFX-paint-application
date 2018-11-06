@@ -2,12 +2,18 @@ package ca.utoronto.utm.paint;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.CustomMenuItem;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.TilePane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class View implements EventHandler<ActionEvent> {
@@ -111,18 +117,27 @@ public class View implements EventHandler<ActionEvent> {
 		
 		menuItem = new MenuItem("White");
 		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 1.0 1.0 1.0 1.0");
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("Black");
+		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 0.0 0.0 0.0 1.0");
 		menu.getItems().add(menuItem);
 		
 		menuItem = new MenuItem("Red");
 		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 1.0 0.0 0.0 1.0");
 		menu.getItems().add(menuItem);
 
 		menuItem = new MenuItem("Green");
 		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 0.0 1.0 0.0 1.0");
 		menu.getItems().add(menuItem);
 
 		menuItem = new MenuItem("Blue");
 		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 0.0 0.0 0.8 1.0");
 		menu.getItems().add(menuItem);
 
 		menuBar.getMenus().add(menu);
@@ -133,6 +148,13 @@ public class View implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		System.out.println(((MenuItem)event.getSource()).getText());
+		
+		String[] id = ((MenuItem)event.getSource()).getId().split(" ");
+		
+		if (id[0].equals("colour")){
+			Color colour = new Color(Double.parseDouble(id[2]), Double.parseDouble(id[3]), Double.parseDouble(id[4]), Double.parseDouble(id[5]));
+			paintPanel.setColour(colour);
+		}
 		
 	}
 }

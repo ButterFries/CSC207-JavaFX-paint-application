@@ -7,7 +7,13 @@ public class Circle {
 	private Point centre;
 	private int radius;
 	private Color colour;
-
+	
+	public Circle(Point centre, int radius) {
+		this.centre = centre;
+		this.radius = radius;
+		this.colour = Color.WHITE;
+	}
+	
 	public Circle(Point centre, int radius, Color colour) {
 		this.centre = centre;
 		this.radius = radius;
