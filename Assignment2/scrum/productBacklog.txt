@@ -5,7 +5,7 @@
 # 2 Implementation of selected color into the drawing stream.
 
 --------------------------------------------------------------------------
-TYPE     : USER STORY 1 : UTORID
+TYPE     : USER STORY 1 : pamalpad
 NAME     : Draw Circle
 OWNER    : 
 PRIORITY :
@@ -16,7 +16,7 @@ I WANT   : To click the center of the circle, drag, and release to specify
 SO THAT  : I can add circles to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 2 : UTORID
+TYPE     : USER STORY 2 : pamalpad
 NAME     : Draw Circle Feedback
 OWNER    : 
 PRIORITY :
