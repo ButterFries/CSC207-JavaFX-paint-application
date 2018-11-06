@@ -7,6 +7,7 @@ public class Circle {
 	private Point centre;
 	private int radius;
 	private Color colour;
+	private boolean fill = false;
 	
 	public Circle(Point centre, int radius) {
 		this.centre = centre;
@@ -18,6 +19,14 @@ public class Circle {
 		this.centre = centre;
 		this.radius = radius;
 		this.colour = colour;
+		this.fill = false;
+	}
+	
+	public Circle(Point centre, int radius, Color colour, boolean fill) {
+		this.centre = centre;
+		this.radius = radius;
+		this.colour = colour;
+		this.fill = fill;
 	}
 
 	public Point getCentre() {
@@ -30,6 +39,10 @@ public class Circle {
 
 	public int getRadius() {
 		return radius;
+	}
+	
+	public boolean getFill() {
+		return fill;
 	}
 
 	public void setRadius(int radius) {

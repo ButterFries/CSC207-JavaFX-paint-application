@@ -111,7 +111,7 @@ public class View implements EventHandler<ActionEvent> {
 
 		menuBar.getMenus().add(menu);
 		
-		// Another menu for Edit
+		// Another menu for Colour
 
 		menu = new Menu("Colour");
 		
@@ -142,6 +142,22 @@ public class View implements EventHandler<ActionEvent> {
 
 		menuBar.getMenus().add(menu);
 		
+		// Another menu for Fill style
+
+		menu = new Menu("Fill Style");
+				
+		menuItem = new MenuItem("solid");
+		menuItem.setOnAction(this);
+		menuItem.setId("fill_style solid");
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("outline");
+		menuItem.setOnAction(this);
+		menuItem.setId("fill_style outline");
+		menu.getItems().add(menuItem);
+		
+		menuBar.getMenus().add(menu);
+		
 		return menuBar;
 	}
 
@@ -154,6 +170,11 @@ public class View implements EventHandler<ActionEvent> {
 		if (id[0].equals("colour")){
 			Color colour = new Color(Double.parseDouble(id[2]), Double.parseDouble(id[3]), Double.parseDouble(id[4]), Double.parseDouble(id[5]));
 			paintPanel.setColour(colour);
+		}
+		
+		if (id[0].equals("fill_style")) {
+			if(id[1].equals("solid")) paintPanel.setFill(true);
+			else if(id[1].equals("outline")) paintPanel.setFill(false);
 		}
 		
 	}

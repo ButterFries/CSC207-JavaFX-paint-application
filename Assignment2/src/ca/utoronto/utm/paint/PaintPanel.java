@@ -20,6 +20,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Color current_colour = Color.WHITE;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
+	private boolean fill = false;
 
 	private Canvas canvas;
 
@@ -68,6 +69,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			int y = c.getCentre().getY();
 			int radius = c.getRadius();
 			g.setStroke(c.getColour());
+			if(c.getFill()) {
+				g.setFill(c.getColour());
+				g.fillOval(x, y, radius, radius);
+			}
 			g.strokeOval(x, y, radius, radius);
 		}
 	}
@@ -88,6 +93,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	
 	public void setColour(Color colour) {
 		this.current_colour = colour;
+	}
+	
+	public void setFill(boolean fill) {
+		this.fill = fill;
 	}
 
 	@Override
@@ -141,7 +150,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			// Problematic notion of radius and centre!!
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
-			this.circle = new Circle(centre, radius, current_colour);
+			this.circle = new Circle(centre, radius, current_colour, fill);
 		}
 	}
 
