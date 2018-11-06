@@ -104,12 +104,35 @@ public class View implements EventHandler<ActionEvent> {
 		menu.getItems().add(menuItem);
 
 		menuBar.getMenus().add(menu);
+		
+		// Another menu for Edit
 
+		menu = new Menu("Colour");
+		
+		menuItem = new MenuItem("White");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("Red");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+
+		menuItem = new MenuItem("Green");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+
+		menuItem = new MenuItem("Blue");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+
+		menuBar.getMenus().add(menu);
+		
 		return menuBar;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
 		System.out.println(((MenuItem)event.getSource()).getText());
+		
 	}
 }
