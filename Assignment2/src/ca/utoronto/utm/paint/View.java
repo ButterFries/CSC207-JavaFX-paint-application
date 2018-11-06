@@ -1,3 +1,4 @@
+
 package ca.utoronto.utm.paint;
 
 import javafx.event.ActionEvent;
@@ -202,3 +203,4 @@ public class View implements EventHandler<ActionEvent> {
 		
 	}
 }
+
