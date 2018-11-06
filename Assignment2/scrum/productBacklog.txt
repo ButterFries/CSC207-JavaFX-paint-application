@@ -52,7 +52,7 @@ I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid const
 SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 5 : UTORID
+TYPE     : USER STORY 5 : czarnec8
 NAME     : Color selector
 OWNER    : 
 PRIORITY :
@@ -76,7 +76,7 @@ I WANT   : To be able to select the current drawing color, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 6 : UTORID
+TYPE     : USER STORY 6 : czarnec8
 NAME     : Fill style selector
 OWNER    : 
 PRIORITY :
@@ -100,7 +100,7 @@ I WANT   : To be able to select the current drawing style (filled or outline), t
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 7 : UTORID
+TYPE     : USER STORY 7 : czarnec8
 NAME     : Line thickness selector
 OWNER    : 
 PRIORITY :
