@@ -2,17 +2,14 @@ package ca.utoronto.utm.paint;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.control.CustomMenuItem;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -158,15 +155,33 @@ public class View implements EventHandler<ActionEvent> {
 		
 		menuBar.getMenus().add(menu);
 		
+		// Another menu for Fill style
+		
+		menu = new Menu("Thickness");
+		
+		TextField text = new TextField("1");
+		text.setOnAction(this);
+		text.setId("thickness");
+		CustomMenuItem custom = new CustomMenuItem(text);
+		custom.setDisable(true);
+		
+		menu.getItems().add(custom);
+		
+		menuBar.getMenus().add(menu);
+		
 		return menuBar;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		System.out.println(((MenuItem)event.getSource()).getText());
 		
-		String[] id = ((MenuItem)event.getSource()).getId().split(" ");
-		
+		String[] id;
+		try {
+			id = ((MenuItem)event.getSource()).getId().split(" ");
+		} catch (ClassCastException e) {
+			id = ((TextField)event.getSource()).getId().split(" ");
+		}
+			
 		if (id[0].equals("colour")){
 			Color colour = new Color(Double.parseDouble(id[2]), Double.parseDouble(id[3]), Double.parseDouble(id[4]), Double.parseDouble(id[5]));
 			paintPanel.setColour(colour);
@@ -175,6 +190,14 @@ public class View implements EventHandler<ActionEvent> {
 		if (id[0].equals("fill_style")) {
 			if(id[1].equals("solid")) paintPanel.setFill(true);
 			else if(id[1].equals("outline")) paintPanel.setFill(false);
+		}
+		
+		if (id[0].equals("thickness")) {
+			int thickness;
+			try {
+				thickness = Integer.parseInt(((TextField)event.getSource()).getText());
+				paintPanel.setThickness(thickness);
+			}catch(NumberFormatException e) { }
 		}
 		
 	}

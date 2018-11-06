@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 public class Circle {
 	
 	private Point centre;
-	private int radius;
+	private int radius, thickness = 1;
 	private Color colour;
 	private boolean fill = false;
 	
@@ -19,7 +19,6 @@ public class Circle {
 		this.centre = centre;
 		this.radius = radius;
 		this.colour = colour;
-		this.fill = false;
 	}
 	
 	public Circle(Point centre, int radius, Color colour, boolean fill) {
@@ -27,6 +26,14 @@ public class Circle {
 		this.radius = radius;
 		this.colour = colour;
 		this.fill = fill;
+	}
+	
+	public Circle(Point centre, int radius, Color colour, boolean fill, int thickness) {
+		this.centre = centre;
+		this.radius = radius;
+		this.colour = colour;
+		this.fill = fill;
+		this.thickness = thickness;
 	}
 
 	public Point getCentre() {
@@ -43,6 +50,10 @@ public class Circle {
 	
 	public boolean getFill() {
 		return fill;
+	}
+	
+	public int getThickness() {
+		return thickness;
 	}
 
 	public void setRadius(int radius) {
