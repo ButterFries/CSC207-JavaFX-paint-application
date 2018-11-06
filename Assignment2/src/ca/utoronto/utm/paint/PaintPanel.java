@@ -64,9 +64,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		// Draw Circles
 		ArrayList<Circle> circles = this.model.getCircles();
 		for (Circle c : circles) {
-			int x = c.getCentre().getX();
-			int y = c.getCentre().getY();
-			int radius = c.getRadius();
+			int x = c.getCentre().getX() - c.getRadius();
+			int y = c.getCentre().getY() - c.getRadius();
+			int radius = 2*c.getRadius();
 			g.setStroke(c.getColour());
 			g.strokeOval(x, y, radius, radius);
 		}
@@ -151,7 +151,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		} else if (this.mode == "Circle") {
 			if (this.circle != null) {
 				// Problematic notion of radius and centre!!
-				int radius = Math.abs((int) this.circle.getCentre().getX() - (int) e.getX());
+				int length = Math.abs((int)this.circle.getCentre().getX() - (int)e.getX());
+				int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
+				int radius = (int)Math.sqrt(length*length + height*height);
 				this.circle.setRadius(radius);
 				this.model.addCircle(this.circle);
 				this.circle = null;
