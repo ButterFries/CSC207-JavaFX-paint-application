@@ -68,7 +68,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			int y = c.getCentre().getY();
 			int radius = c.getRadius();
 			g.setStroke(c.getColour());
-			System.out.println(current_colour.getRed());
 			g.strokeOval(x, y, radius, radius);
 		}
 	}
