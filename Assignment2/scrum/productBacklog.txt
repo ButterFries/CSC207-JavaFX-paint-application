@@ -31,7 +31,7 @@ SO THAT  : I can see the circle I am about to build on release of the mouse
            button.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 3 : UTORID
+TYPE     : USER STORY 3 : delisiom
 NAME     : Draw Rectangle
 OWNER    : 
 PRIORITY :
@@ -42,7 +42,7 @@ I WANT   : To click on one corner of a rectangle, drag, and release to
 SO THAT  : I can add rectangles to my canvas
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 4 : UTORID
+TYPE     : USER STORY 4 : delisiom
 NAME     : Draw Rectangle Feedback
 OWNER    : 
 PRIORITY :
@@ -125,7 +125,7 @@ I WANT   : To be able to select the current line thickness, to be applied
 SO THAT  : 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 1 : UTORID
+TYPE     : BUG 1 : delisiom
 NAME     : Icons instead of text for drawing mode selection
 OWNER    : 
 PRIORITY :
@@ -133,7 +133,7 @@ ESTIMATE :
 ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 2 : UTORID
+TYPE     : BUG 2 : delisiom
 NAME     : Drawing selection mode not indicated
 OWNER    : 
 PRIORITY :
