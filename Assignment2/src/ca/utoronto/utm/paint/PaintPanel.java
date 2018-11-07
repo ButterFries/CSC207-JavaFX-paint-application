@@ -55,6 +55,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		g.setLineWidth(1);
 		g.setStroke(Color.WHITE);
 		g.strokeText("i=" + i, 50, 75);
+		
 		i = i + 1;
 
 		// Draw Lines
@@ -86,34 +87,21 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		// Draw Rectangles
 		ArrayList<Rectangle> rectangles = this.model.getRectangles();
 		for (Rectangle r: rectangles) {
-			int[] values = findXYRect(r);
+			Point topLeft = r.findTopLeft();
 			int h = r.getHeight(); int w = r.getWidth();
 			g.setStroke(r.getColour());
 			g.setLineWidth(r.getThickness());
 			
-			if(r.getFill()) {
+			if(r.isFill()) {
 				g.setFill(r.getColour());
-				g.fillRect(values[0], values[1], w, h);
+				g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
 			}
-			g.strokeRect(values[0], values[1], w, h);
+			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 		}
 	}
 	
-	//helper for repaint()
-	public int[] findXYRect(Rectangle r) {
-		int x = r.getOrigin().getX(); int y = r.getOrigin().getY();
-		int[] values = new int[2];
-		switch (r.getContext()) {
-		case "topleft":
-			values[0] = x; values[1] = y;
-		case "topright":
-			values[0] = r.getDiagonal().getX(); values[1] = y;
-		case "botleft":
-			values[0] = x; values[1] = r.getDiagonal().getY();
-		case "botright":
-			values[0] = r.getDiagonal().getX(); values[1] = r.getDiagonal().getY();
-		} return values;
-	}
+
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -201,6 +189,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	private void mouseReleased(MouseEvent e) {
+		
 		if (this.mode == "Squiggle") {
 
 		} else if (this.mode == "Circle") {
@@ -214,7 +203,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				this.circle = null;
 			}
 		} else if (this.mode == "Rectangle") {
-			Point diagonal = new Point((int) e.getX(),(int) e.getY());
+			Point diagonal = new Point((int) e.getX(), (int) e.getY());
 			this.rectangle.setDiagonal(diagonal);
 			this.model.addRectangle(this.rectangle);
 			this.rectangle = null;
