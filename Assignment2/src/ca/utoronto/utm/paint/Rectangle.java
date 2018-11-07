@@ -17,8 +17,18 @@ public class Rectangle {
 		this.diagonal = diagonal;
 		this.updateDim();
 		this.assignContext();
-		
 	}
+	
+	public Rectangle(Point origin, Point diagonal, Color colour, boolean fill, int thickness) {
+		this.origin = origin;
+		this.diagonal = diagonal;
+		this.colour = colour;
+		this.fill = fill;
+		this.thickness = thickness;
+		this.updateDim();
+		this.assignContext();
+	}
+	
 	//helper for repaint()'s strokeRect() method
 	public Point findTopLeft() {
 		int x, y;

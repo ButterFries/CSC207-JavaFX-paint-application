@@ -183,7 +183,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		} else if (this.mode == "Rectangle") {
 			Point origin = new Point((int) e.getX(), (int) e.getY());
 			Point diagonal = new Point((int) e.getX(), (int) e.getY());
-			this.rectangle = new Rectangle(origin, diagonal);
+			this.rectangle = new Rectangle(origin, diagonal, current_colour, fill, thickness);
 		}
 		
 	}
