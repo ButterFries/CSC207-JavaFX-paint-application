@@ -1,5 +1,5 @@
 # Fill in, commit and push each day.
-# Group Member: FILL THIS IN
+# Group Member: MICHAEL NAJDA (najdamic)
 Oct 28, 2018
 	Yesterday :
 	Today     :
@@ -52,7 +52,8 @@ Nov 6, 2018
 
 Nov 7, 2018
 	Yesterday :
-	Today     :
+	Today     : Read over the different classes and figured out how it works, will start
+				my User Stories today and try to start fixing bugs
 	Obstacles :
 
 Nov 8, 2018
