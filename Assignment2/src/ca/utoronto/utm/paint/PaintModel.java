@@ -8,6 +8,7 @@ public class PaintModel extends Observable {
 	private ArrayList<Point> points = new ArrayList<Point>();
 	private ArrayList<Circle> circles = new ArrayList<Circle>();
 	private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();
+	private Rectangle tempRect = null;
 
 	public void addPoint(Point p) {
 		this.points.add(p);
@@ -35,6 +36,14 @@ public class PaintModel extends Observable {
 	}
 	public ArrayList<Rectangle> getRectangles() {
 		return rectangles;
+	}
+	public void setTempRect(Rectangle r) {
+		this.tempRect = r;
+		this.setChanged();
+		this.notifyObservers();
+	}
+	public Rectangle getTempRect() {
+		return this.tempRect;
 	}
 	
 	

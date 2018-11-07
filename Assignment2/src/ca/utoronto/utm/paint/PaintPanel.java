@@ -98,6 +98,20 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 		}
+		// Draw Temporary Rectangles during a drag of the mouse
+		Rectangle r = this.model.getTempRect();
+		if (r != null) {
+			Point topLeft = r.findTopLeft();
+			int h = r.getHeight(); int w = r.getWidth();
+			g.setStroke(r.getColour());
+			g.setLineWidth(r.getThickness());
+			
+			if(r.isFill()) {
+				g.setFill(r.getColour());
+				g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
+			}
+			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
+			}
 	}
 	
 
@@ -161,6 +175,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.model.addPoint(new Point((int) e.getX(), (int) e.getY(), current_colour, thickness));
 		} else if (this.mode == "Circle") {
 
+		} else if (this.mode == "Rectangle") {
+			Point diagonal = new Point((int) e.getX(), (int) e.getY());
+			this.rectangle.setDiagonal(diagonal);
+			this.model.setTempRect(this.rectangle);
 		}
 	}
 
