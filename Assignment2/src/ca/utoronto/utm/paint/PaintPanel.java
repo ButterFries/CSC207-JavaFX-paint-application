@@ -21,6 +21,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Color current_colour = Color.WHITE;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
+	private Rectangle rectangle;
 	private boolean fill = false;
 	private int thickness = 1;
 	
@@ -82,8 +83,37 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeOval(x, y, radius, radius);
 		}
+		// Draw Rectangles
+		ArrayList<Rectangle> rectangles = this.model.getRectangles();
+		for (Rectangle r: rectangles) {
+			int[] values = findXYRect(r);
+			int h = r.getHeight(); int w = r.getWidth();
+			g.setStroke(r.getColour());
+			g.setLineWidth(r.getThickness());
+			
+			if(r.getFill()) {
+				g.setFill(r.getColour());
+				g.fillRect(values[0], values[1], w, h);
+			}
+			g.strokeRect(values[0], values[1], w, h);
+		}
 	}
-
+	
+	//helper for repaint()
+	public int[] findXYRect(Rectangle r) {
+		int x = r.getOrigin().getX(); int y = r.getOrigin().getY();
+		int[] values = new int[2];
+		switch (r.getContext()) {
+		case "topleft":
+			values[0] = x; values[1] = y;
+		case "topright":
+			values[0] = r.getDiagonal().getX(); values[1] = y;
+		case "botleft":
+			values[0] = x; values[1] = r.getDiagonal().getY();
+		case "botright":
+			values[0] = r.getDiagonal().getX(); values[1] = r.getDiagonal().getY();
+		} return values;
+	}
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -162,7 +192,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
 			this.circle = new Circle(centre, radius, current_colour, fill, thickness);
+		} else if (this.mode == "Rectangle") {
+			Point origin = new Point((int) e.getX(), (int) e.getY());
+			Point diagonal = new Point((int) e.getX(), (int) e.getY());
+			this.rectangle = new Rectangle(origin, diagonal);
 		}
+		
 	}
 
 	private void mouseReleased(MouseEvent e) {
@@ -178,6 +213,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				this.model.addCircle(this.circle);
 				this.circle = null;
 			}
+		} else if (this.mode == "Rectangle") {
+			Point diagonal = new Point((int) e.getX(),(int) e.getY());
+			this.rectangle.setDiagonal(diagonal);
+			this.model.addRectangle(this.rectangle);
+			this.rectangle = null;
 		}
 
 	}
