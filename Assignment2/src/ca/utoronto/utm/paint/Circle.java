@@ -10,6 +10,7 @@ public class Circle {
 	private Color colour;
 	private boolean fill = false;
 	
+	
 	public Circle(Point centre, int radius) {
 		this.centre = centre;
 		this.radius = radius;

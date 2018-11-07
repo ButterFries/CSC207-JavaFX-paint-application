@@ -21,6 +21,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Color current_colour = Color.WHITE;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
+	private Rectangle rectangle;
 	private boolean fill = false;
 	private int thickness = 1;
 	
@@ -54,6 +55,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		g.setLineWidth(1);
 		g.setStroke(Color.WHITE);
 		g.strokeText("i=" + i, 50, 75);
+		
 		i = i + 1;
 
 		// Draw Lines
@@ -82,8 +84,24 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeOval(x, y, radius, radius);
 		}
+		// Draw Rectangles
+		ArrayList<Rectangle> rectangles = this.model.getRectangles();
+		for (Rectangle r: rectangles) {
+			Point topLeft = r.findTopLeft();
+			int h = r.getHeight(); int w = r.getWidth();
+			g.setStroke(r.getColour());
+			g.setLineWidth(r.getThickness());
+			
+			if(r.isFill()) {
+				g.setFill(r.getColour());
+				g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
+			}
+			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
+		}
 	}
+	
 
+	
 	@Override
 	public void update(Observable o, Object arg) {
 
@@ -162,10 +180,16 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point centre = new Point((int) e.getX(), (int) e.getY());
 			int radius = 0;
 			this.circle = new Circle(centre, radius, current_colour, fill, thickness);
+		} else if (this.mode == "Rectangle") {
+			Point origin = new Point((int) e.getX(), (int) e.getY());
+			Point diagonal = new Point((int) e.getX(), (int) e.getY());
+			this.rectangle = new Rectangle(origin, diagonal);
 		}
+		
 	}
 
 	private void mouseReleased(MouseEvent e) {
+		
 		if (this.mode == "Squiggle") {
 
 		} else if (this.mode == "Circle") {
@@ -178,6 +202,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 				this.model.addCircle(this.circle);
 				this.circle = null;
 			}
+		} else if (this.mode == "Rectangle") {
+			Point diagonal = new Point((int) e.getX(), (int) e.getY());
+			this.rectangle.setDiagonal(diagonal);
+			this.model.addRectangle(this.rectangle);
+			this.rectangle = null;
 		}
 
 	}
