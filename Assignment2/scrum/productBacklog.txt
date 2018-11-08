@@ -143,7 +143,7 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
            to highlight the currently selected mode?
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 3 : UTORID
+TYPE     : BUG 3 : najdamic
 NAME     : Architecture behind choosing selection mode is poor
 OWNER    : 
 PRIORITY :
