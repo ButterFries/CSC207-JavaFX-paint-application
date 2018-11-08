@@ -168,7 +168,7 @@ ISSUE    : Having a list of different types of drawable things in the
            here.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 5 : UTORID
+TYPE     : BUG 5 : delisiom
 NAME     : Squiggle is broken
 OWNER    : 
 PRIORITY :
@@ -188,7 +188,7 @@ ISSUE    : The first click should specify the center of the circle, with
            implementation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : USER STORY 8 : UTORID
+TYPE     : USER STORY 8 : delisiom
 NAME     : Implement Poly Line
 OWNER    : 
 PRIORITY :
