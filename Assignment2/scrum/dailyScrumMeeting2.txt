@@ -41,19 +41,21 @@ Nov 4, 2018
 	Obstacles :
 
 Nov 5, 2018
-	Yesterday :
-	Today     :
+	Yesterday : Reviewed code to try and find a good understanding.
+	Today     : Continued to review code and claimed Userstories and Bugs for first
+		    sprint.
 	Obstacles :
 
 Nov 6, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Started Userstory3 and UserStory4
+	Obstacles : Trouble with having the rectangle generated from multiple directions.
 
 Nov 7, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Completed UserStory3, UserStory4 and started Bug1 and Bug5
+	Obstacles : Didn’t start Bug2 since that code is being worked on by another
+		    team member.
 
 Nov 8, 2018
 	Yesterday :
