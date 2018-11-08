@@ -21,9 +21,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Color current_colour = Color.WHITE;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
-	private Rectangle rectangle;
-	private boolean fill = false;
-	private int thickness = 1;
+	private Rectangle rectangle; // the rectangle we are building 
+	private boolean fill = false; // determines whether to draw filled in or outlined shapes
+	private int thickness = 1; 
 	
 	private Canvas canvas;
 
@@ -84,6 +84,23 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeOval(x, y, radius, radius);
 		}
+		
+		// Draw temporary circles while the mouse is dragged
+		Circle c = this.model.getTempCircle();
+		if (c != null) {
+			int x = c.getCentre().getX() - c.getRadius();
+			int y = c.getCentre().getY() - c.getRadius();
+			int radius = 2*c.getRadius();
+			g.setStroke(c.getColour());
+			g.setLineWidth(c.getThickness());
+			
+			if(c.getFill()) {
+				g.setFill(c.getColour());
+				g.fillOval(x, y, radius, radius);
+			}
+			g.strokeOval(x, y, radius, radius);
+		}
+		
 		// Draw Rectangles
 		ArrayList<Rectangle> rectangles = this.model.getRectangles();
 		for (Rectangle r: rectangles) {
@@ -98,6 +115,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 		}
+		
 		// Draw Temporary Rectangles during a drag of the mouse
 		Rectangle r = this.model.getTempRect();
 		if (r != null) {
@@ -174,6 +192,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		if (this.mode == "Squiggle") {
 			this.model.addPoint(new Point((int) e.getX(), (int) e.getY(), current_colour, thickness));
 		} else if (this.mode == "Circle") {
+			int length = Math.abs((int)this.circle.getCentre().getX() - (int)e.getX());
+			int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
+			int radius = (int)Math.sqrt(length*length + height*height);
+			this.circle.setRadius(radius);
+			this.model.setTempCircle(this.circle);
 
 		} else if (this.mode == "Rectangle") {
 			Point diagonal = new Point((int) e.getX(), (int) e.getY());
