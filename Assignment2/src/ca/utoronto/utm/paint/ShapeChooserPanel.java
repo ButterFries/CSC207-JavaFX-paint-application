@@ -4,6 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+//
+import javafx.scene.Scene; 
+import javafx.scene.control.Button; 
+ import javafx.scene.image.*; 
+import java.io.*; 
+ //import javafx.scene.control.Label; 
+import javafx.stage.Stage; 
+import java.net.*; 
 
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 
@@ -17,8 +25,12 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 
 		int row = 0;
 		for (String label : buttonLabels) {
+			Image icon = new Image(getClass().getResourceAsStream(label +"Icon.png"));
 			Button button = new Button(label);
-			button.setMinWidth(100);
+			ImageView iIcon = new ImageView(icon);
+			iIcon.setFitHeight(27); iIcon.setFitWidth(27);
+			button.setGraphic(iIcon);
+			button.setPrefWidth(120); button.setPrefHeight(20);
 			this.add(button, 0, row);
 			row++;
 			button.setOnAction(this);
