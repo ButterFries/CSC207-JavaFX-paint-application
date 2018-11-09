@@ -26,7 +26,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private boolean fill = false; // determines whether to draw filled in or outlined shapes
 	private int thickness = 1; 
 	
+	private ShapeStrategy strategy;
+	
 	private Canvas canvas;
+	
+	
 
 	public PaintPanel(PaintModel model, View view) {
 
@@ -39,6 +43,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.addEventHandler(MouseEvent.ANY, this);
 
 		this.mode = "Circle"; // bad code here?
+		this.strategy = new CircleStrategy(model, fill, thickness);
 
 		this.model = model;
 		this.model.addObserver(this);
@@ -188,14 +193,32 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.fill = fill;
 	}
 	
+	public boolean getFill() {
+		return this.fill;
+	}
+	
 	public void setThickness(int thickness) {
 		this.thickness = thickness;
+	}
+	
+	public int getThickness() {
+		return this.thickness;
+	}
+	
+	public void setStrat(ShapeStrategy strategy) {
+		this.strategy = strategy;
+	}
+	
+	public PaintModel getModel() {
+		return this.model;
 	}
 
 	@Override
 	public void handle(MouseEvent event) {
+		
+		this.strategy.mEvent(event);
 
-		if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+		/*if (event.getEventType() == MouseEvent.MOUSE_DRAGGED) {
 			mouseDragged(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			mousePressed(event);
@@ -209,10 +232,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			mouseEntered(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
 			mouseExited(event);
-		}
+		} */
 	}
 
-	private void mouseMoved(MouseEvent e) {
+/*	private void mouseMoved(MouseEvent e) {
 		if (this.mode == "Squiggle") {
 
 		} else if (this.mode == "Circle") {
@@ -304,4 +327,5 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		}
 	}
+	*/
 }

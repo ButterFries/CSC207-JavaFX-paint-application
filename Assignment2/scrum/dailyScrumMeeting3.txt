@@ -53,18 +53,21 @@ Nov 6, 2018
 Nov 7, 2018
 	Yesterday :
 	Today     : Read over the different classes and figured out how it works, will start
-				my User Stories today and try to start fixing bugs
+				my User Stories today and solve bug 3
 	Obstacles :
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : 
+	Today     : Will try to use command pattern to solve bug 3
+	Obstacles :Have to decide between using the command pattern or the strategy pattern
+				to fix bug 3
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Almost solved bug 3.
+	Today     :Solved bug 3, fill and line thickness does not change dynamically with the 
+				shape chooser panel, 
+	Obstacles :in paint panel will need to change whenever fill or thickness is changed will
+				need to call the shape chooser panel handler.
 
 Nov 10, 2018
 	Yesterday :

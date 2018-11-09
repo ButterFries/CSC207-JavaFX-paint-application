@@ -145,9 +145,9 @@ ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
 --------------------------------------------------------------------------
 TYPE     : BUG 3 : najdamic
 NAME     : Architecture behind choosing selection mode is poor
-OWNER    : 
-PRIORITY :
-ESTIMATE : 
+OWNER    : najdamic
+PRIORITY : medium priority
+ESTIMATE : 5 hours
 ISSUE    : Code is not modular and is difficult to expand. Need a better
            architecture behind selecting a drawing mode, and handling
            the drawing events. Consider some design patterns here.
