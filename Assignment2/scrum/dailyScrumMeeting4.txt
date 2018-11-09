@@ -47,18 +47,18 @@ Nov 5, 2018
 
 Nov 6, 2018
 	Yesterday :
-	Today     : "Completed" UserStory1, that is making the radius of the circle drawn diagonally, and Bug6, 
+	Today     : "Completed" UserStory1, that is making the radius of the circle drawn diagonally, and Bug6.
 	Obstacles : Calculating the difference between the centres position and the position of the current cursor. 
 
 Nov 7, 2018
-	Yesterday : Completed UserStory1, Bug2
-	Today     : Completed UserStory2, the circles are now visible while being dragged
+	Yesterday : Completed UserStory1, Bug6.
+	Today     : Completed UserStory2, the circles are now visible while being dragged.
 	Obstacles : I originally added the temporary circles to the arrayList and removed them, but I eventually switched to a more convenient approach.
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Completed UserStory2.
+	Today     : Claimed Bug9, Bug10.
+	Obstacles : Understanding how to implement the factory and strategy design pattern for their respective bugs.
 
 Nov 9, 2018
 	Yesterday :
