@@ -193,7 +193,18 @@ NAME     : Implement Poly Line
 OWNER    : 
 PRIORITY :
 ESTIMATE : 
-ISSUE    : YOU FILL THIS ONE IN!!
+ISSUE    : Click and drag mouse to create connected line segments, to 
+finish a polyline click on a point already drawn. 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 9 : delisiom
+NAME     : Implement Square
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Press and drag to create a square with your first click 
+indicating either to top left or top right point of a square depending
+on direction of the drag.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : BUG 7 : UTORID
