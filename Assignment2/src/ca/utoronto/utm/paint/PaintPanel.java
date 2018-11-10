@@ -224,34 +224,5 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.thickness = thickness;
 	}
 	
-
-	public void clickedActPoly(MouseEvent e) {
-		Point point = new Point((int) e.getX(),(int) e.getY());
-		if (this.polyline == null) {
-			Polyline polyl = new Polyline(this.thickness, this.current_colour, this.fill);
-			Line line = new Line(point, this.current_colour, this.thickness);
-			this.polyline = polyl; this.line = line;
-		}
-		else if (e.getClickCount() == 2) { 
-			this.model.addPolyline(this.polyline);
-			this.polyline = null; this.line = null;
-		}
-		else {
-			this.line.setEnd(point);
-			this.polyline.addLine(this.line);
-			this.model.setTempPolyline(this.polyline);
-			Line newLine = new Line(point, this.line.getColour(), this.line.getThickness());
-			this.line = newLine;
-			
-		}
-	}
-	public void movedActPoly(MouseEvent e) {
-		Point point = new Point((int) e.getX(),(int) e.getY());
-		if (this.polyline != null) {
-			this.line.setEnd(point);
-			this.polyline.addLine(this.line);
-			this.model.setTempPolyline(this.polyline);
-		}
-	}
 	
 }
