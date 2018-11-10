@@ -9,9 +9,11 @@ public class PaintModel extends Observable {
 	private ArrayList<Circle> circles = new ArrayList<Circle>();
 	private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();
 	private ArrayList<Squiggle> squiggles = new ArrayList<Squiggle>();
+	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
 	private Circle tempCircle = null;
 	private Rectangle tempRect = null;
 	private Squiggle tempSquiggle = null;
+	private Polyline tempPolyline = null;
 
 	public void addPoint(Point p) {
 		this.points.add(p);
@@ -72,6 +74,22 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 		
 	}
+	public void setTempPolyline(Polyline p) {
+		this.tempPolyline = p;
+		this.setChanged();
+		this.notifyObservers();
+	}
+	public void addPolyline(Polyline p) {
+		this.polylines.add(p);
+		this.setChanged();
+		this.notifyObservers();
+	}
+	public Polyline getTempPolyline() {
+		return this.tempPolyline;
+	}
 	
+	public ArrayList<Polyline> getPolylines(){
+		return this.polylines;
+	}
 	
 }
