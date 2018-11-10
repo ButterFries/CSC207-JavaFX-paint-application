@@ -155,7 +155,7 @@ ISSUE    : Code is not modular and is difficult to expand. Need a better
            'if' blocks in the PaintPanel mouse event code.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 4 : UTORID
+TYPE     : BUG 4 : najdamic
 NAME     : Architecture behind Model is poor
 OWNER    : 
 PRIORITY :

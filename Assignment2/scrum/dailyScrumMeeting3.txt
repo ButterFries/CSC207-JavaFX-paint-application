@@ -70,8 +70,10 @@ Nov 9, 2018
 				need to call the shape chooser panel handler.
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
+	Yesterday :Finished bug3 but also realized that when you change thickness or fill you 
+	have to reselect the 'mode' so circle or rectangle and then the changes are applied.
+	Today     :Will start to work on bug4 and trying to solve the change of selection so that 
+	you don't have to reselect the mode.
 	Obstacles :
 	
 Nov 11, 2018

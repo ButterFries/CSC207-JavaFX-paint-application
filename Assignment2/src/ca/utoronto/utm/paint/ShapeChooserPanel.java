@@ -62,6 +62,10 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		else if (command == "Squiggle") {
 			//this.view.getPaintPanel().setStrat(new SquiggleStrategy());
 		}
+		else if (command == "Polyline") {
+			this.view.getPaintPanel().setStrat(new PolylineStrategy(paintModel, fill,
+					thickness));
+		}
 		System.out.println(command);
 	}
 }

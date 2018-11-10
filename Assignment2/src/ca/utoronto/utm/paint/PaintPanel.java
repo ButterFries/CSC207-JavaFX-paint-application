@@ -242,11 +242,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	}
 
 	public PaintModel getModel() {
-		return this.model;
-
-	
-	
-}
+		return this.model;	
+	}
 
 	@Override
 	public void handle(MouseEvent event) {

@@ -3,7 +3,8 @@ package ca.utoronto.utm.paint;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-public class RectangleStrategy implements ShapeStrategy{
+public class PolylineStrategy implements ShapeStrategy{
+	
 
 	public PaintModel model;
 	public PaintPanel paintPanel;
@@ -13,7 +14,7 @@ public class RectangleStrategy implements ShapeStrategy{
 	private boolean fill;
 	private int thickness;
 	
-	public RectangleStrategy(PaintModel model, boolean fill, int thickness) {
+	public PolylineStrategy(PaintModel model, boolean fill, int thickness) {
 		this.model = model;
 		this.fill = fill;
 		this.thickness = thickness;
@@ -40,15 +41,11 @@ public class RectangleStrategy implements ShapeStrategy{
 	}
 	
 	private void mousePressed(MouseEvent e) {
-		Point origin = new Point((int) e.getX(), (int) e.getY());
-		Point diagonal = new Point((int) e.getX(), (int) e.getY());
-		this.rectangle = new Rectangle(origin, diagonal, current_colour, fill, thickness);
+		
 	}
 	
 	private void mouseDragged(MouseEvent e) {
-		Point diagonal = new Point((int) e.getX(), (int) e.getY());
-		this.rectangle.setDiagonal(diagonal);
-		this.model.setTempRect(this.rectangle);
+		
 	}
 	
 	private void mouseClicked(MouseEvent e) {
@@ -56,10 +53,7 @@ public class RectangleStrategy implements ShapeStrategy{
 	}
 	
 	private void mouseReleased(MouseEvent e) {
-		Point diagonal = new Point((int) e.getX(), (int) e.getY());
-		this.rectangle.setDiagonal(diagonal);
-		this.model.addRectangle(this.rectangle);
-		this.rectangle = null;
+	
 	}
 	
 	private void mouseEntered(MouseEvent e) {
@@ -74,5 +68,4 @@ public class RectangleStrategy implements ShapeStrategy{
 		
 	}
 	
-
 }
