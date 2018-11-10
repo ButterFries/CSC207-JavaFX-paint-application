@@ -232,6 +232,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void setThickness(int thickness) {
 		this.thickness = thickness;
 	}
+<<<<<<< HEAD
 	
 	public int getThickness() {
 		return this.thickness;
@@ -251,6 +252,14 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.strategy.mEvent(event);
 	}
 
+=======
+
+	@Override
+	public void handle(MouseEvent event) {
+
+		
+	}
+>>>>>>> UserStory8
 	public void clickedActPoly(MouseEvent e) {
 		Point point = new Point((int) e.getX(),(int) e.getY());
 		if (this.polyline == null) {
