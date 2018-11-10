@@ -232,7 +232,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void setThickness(int thickness) {
 		this.thickness = thickness;
 	}
-}
+
 	public int getThickness() {
 		return this.thickness;
 	}
@@ -243,6 +243,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	public PaintModel getModel() {
 		return this.model;
+
+	
+	
 }
 
 	@Override
