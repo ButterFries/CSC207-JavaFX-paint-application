@@ -207,7 +207,7 @@ indicating either to top left or top right point of a square depending
 on direction of the drag.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 7 : UTORID
+TYPE     : BUG 7 : delisiom
 NAME     : Architecture for drawing shapes can be improved
 OWNER    : 
 PRIORITY :
