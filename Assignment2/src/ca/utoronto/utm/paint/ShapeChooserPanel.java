@@ -57,7 +57,8 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 					thickness));
 		}
 		else if (command == "Square") {
-			//this.view.getPaintPanel().setStrat(new SquareStrategy());
+			this.view.getPaintPanel().setStrat(new SquareStrategy(paintModel, fill,
+					thickness));
 		}
 		else if (command == "Squiggle") {
 			//this.view.getPaintPanel().setStrat(new SquiggleStrategy());

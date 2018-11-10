@@ -3,12 +3,12 @@ package ca.utoronto.utm.paint;
 import javafx.scene.paint.Color;
 
 public class Rectangle {
-	private Point origin, diagonal;
-	private String context;
-	private int height, width;
-	private int thickness = 1;
-	private Color colour = Color.WHITE;
-	private boolean fill = false;
+	protected Point origin, diagonal;
+	protected String context;
+	protected int height, width;
+	protected int thickness = 1;
+	protected Color colour = Color.WHITE;
+	protected boolean fill = false;
 	
 	
 	

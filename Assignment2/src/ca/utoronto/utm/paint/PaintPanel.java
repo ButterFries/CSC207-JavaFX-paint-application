@@ -129,6 +129,35 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 			}
 		
+		//Draw Squares
+		ArrayList<Square> squares = this.model.getSquares();
+		for (Rectangle s: squares) {
+			Point topLeft = s.findTopLeft();
+			int h = s.getHeight(); 
+			g.setStroke(s.getColour());
+			g.setLineWidth(s.getThickness());
+			
+			if(s.isFill()) {
+				g.setFill(s.getColour());
+				g.fillRect(topLeft.getX(), topLeft.getY(), h, h);
+			}
+			g.strokeRect(topLeft.getX(), topLeft.getY(), h, h);
+		}
+		Square stemp = this.model.getTempSquare();
+		if (stemp != null) {
+			Point topLeft = stemp.findTopLeft();
+			int h = stemp.getHeight();
+			g.setStroke(stemp.getColour());
+			g.setLineWidth(stemp.getThickness());
+			
+			if(r.isFill()) {
+				g.setFill(stemp.getColour());
+				g.fillRect(topLeft.getX(), topLeft.getY(), h, h);
+			}
+			g.strokeRect(topLeft.getX(), topLeft.getY(), h, h);
+			}
+		
+		
 		//Draw Polylines
 		this.drawPolylines(g);
 		// Draw Squiggles
