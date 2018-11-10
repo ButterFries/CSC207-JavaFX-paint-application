@@ -23,6 +23,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private Circle circle; // the circle we are building
 	private Rectangle rectangle; // the rectangle we are building 
 	private Squiggle Squiggle; // the squiggle in construction
+	private Polyline polyline = null;
+	private Line line = null;
 	private boolean fill = false; // determines whether to draw filled in or outlined shapes
 	private int thickness = 1; 
 	
@@ -59,9 +61,6 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		
 		i = i + 1;
 		
-		
-		// Draw Squiggles
-		drawSquiggles(g);
 		
 		// Draw Circles
 		ArrayList<Circle> circles = this.model.getCircles();
@@ -124,6 +123,39 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 			}
+		
+		//Draw Polylines
+		this.drawPolylines(g);
+		// Draw Squiggles
+		this.drawSquiggles(g);
+		
+
+		
+	}
+	
+	public void drawPolylines(GraphicsContext g) {
+		ArrayList<Polyline> polylines = this.model.getPolylines();
+		for (Polyline pline : polylines) {
+			g.setStroke(pline.getColour());
+			g.setLineWidth(pline.getThickness());
+			ArrayList<Line> lines = pline.getLines();
+				for (Line l: lines) {
+					g.strokeLine(l.getOrigin().getX(), l.getOrigin().getY(), 
+							l.getEnd().getX(), l.getEnd().getY());
+				}
+			}
+		
+		Polyline temPoly = this.model.getTempPolyline();
+		if (temPoly != null) {
+			g.setStroke(temPoly.getColour()); // 
+			g.setLineWidth(temPoly.getThickness()); 
+			ArrayList<Line> tlines = temPoly.getLines();
+			for (Line tl: tlines) {
+				g.strokeLine(tl.getOrigin().getX(), tl.getOrigin().getY(), 
+						tl.getEnd().getX(), tl.getEnd().getY());
+			}
+		}
+		
 	}
 	
 	public void drawSquiggles(GraphicsContext g) {
@@ -217,6 +249,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		} else if (this.mode == "Circle") {
 
+		} else if (this.mode == "Polyline") {
+			this.movedActPoly(e);
+			
 		}
 	}
 
@@ -235,7 +270,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point diagonal = new Point((int) e.getX(), (int) e.getY());
 			this.rectangle.setDiagonal(diagonal);
 			this.model.setTempRect(this.rectangle);
-		}
+		} 
 	}
 
 	private void mouseClicked(MouseEvent e) {
@@ -243,6 +278,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		} else if (this.mode == "Circle") {
 
+		} else if (this.mode == "Polyline") {
+			this.clickedActPoly(e);
 		}
 	}
 
@@ -260,7 +297,10 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			Point origin = new Point((int) e.getX(), (int) e.getY());
 			Point diagonal = new Point((int) e.getX(), (int) e.getY());
 			this.rectangle = new Rectangle(origin, diagonal, current_colour, fill, thickness);
-		}
+		} 
+		
+		 
+		
 		
 	}
 
@@ -285,7 +325,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			this.rectangle.setDiagonal(diagonal);
 			this.model.addRectangle(this.rectangle);
 			this.rectangle = null;
-		}
+		} 
+			
 
 	}
 
@@ -304,4 +345,33 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		}
 	}
+	public void clickedActPoly(MouseEvent e) {
+		Point point = new Point((int) e.getX(),(int) e.getY());
+		if (this.polyline == null) {
+			Polyline polyl = new Polyline(this.thickness, this.current_colour, this.fill);
+			Line line = new Line(point, this.current_colour, this.thickness);
+			this.polyline = polyl; this.line = line;
+		}
+		else if (e.getClickCount() == 2) { 
+			this.model.addPolyline(this.polyline);
+			this.polyline = null; this.line = null;
+		}
+		else {
+			this.line.setEnd(point);
+			this.polyline.addLine(this.line);
+			this.model.setTempPolyline(this.polyline);
+			Line newLine = new Line(point, this.line.getColour(), this.line.getThickness());
+			this.line = newLine;
+			
+		}
+	}
+	public void movedActPoly(MouseEvent e) {
+		Point point = new Point((int) e.getX(),(int) e.getY());
+		if (this.polyline != null) {
+			this.line.setEnd(point);
+			this.polyline.addLine(this.line);
+			this.model.setTempPolyline(this.polyline);
+		}
+	}
+	
 }
