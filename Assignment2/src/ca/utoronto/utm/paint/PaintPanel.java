@@ -219,18 +219,22 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	
 	public void setColour(Color colour) {
 		this.current_colour = colour;
+		this.strategy.setColour(colour);
 	}
 	
 	public void setFill(boolean fill) {
 		this.fill = fill;
+		this.strategy.setFill(fill);
 	}
 	
 	public boolean getFill() {
 		return this.fill;
+		
 	}
 	
 	public void setThickness(int thickness) {
 		this.thickness = thickness;
+		this.strategy.setThickness(thickness);
 	}
 
 	public int getThickness() {

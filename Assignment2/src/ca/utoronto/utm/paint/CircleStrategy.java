@@ -30,6 +30,16 @@ public class CircleStrategy implements ShapeStrategy{
 	public CircleStrategy() {
 		
 	}
+	public void setColour(Color current_colour) {
+		this.current_colour = current_colour;
+	}
+
+	public void setFill(boolean fill) {
+		this.fill = fill;
+	}
+	public void setThickness(int thickness) {
+		this.thickness = thickness;
+	}
 	
 
 	@Override
