@@ -24,8 +24,8 @@ public class ShapeFactory {
 			return new SquareStrategy(paintModel, fill, thickness);
 			}
 		else if (command.equals("Squiggle")) {
-			//return new SqiggleStrategy(paintModel, fill, thickness);
-			return null;
+			return new SquiggleStrategy(paintModel, fill, thickness);
+			
 			}
 		else if (command.equals("Polyline")) {
 			return new PolylineStrategy(paintModel, fill, thickness);
