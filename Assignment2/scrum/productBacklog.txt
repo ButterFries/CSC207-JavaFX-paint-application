@@ -256,7 +256,7 @@ PaintModel.
 
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 8 : UTORID
+TYPE     : BUG 8 : pamalpad
 NAME     : Architecture for handling shape modifiers can be improved 
 OWNER    : 
 PRIORITY :
@@ -287,7 +287,7 @@ display an ImageIcon. The string attached to the button causes the right choice
 of object creation.
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : BUG 10 : pamalpad
+TYPE     : BUG 10 : najdamic
 NAME     : Architecture behind creating shape instances is poor
 OWNER    : 
 PRIORITY :
