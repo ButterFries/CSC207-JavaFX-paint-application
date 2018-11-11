@@ -1,10 +1,10 @@
 package ca.utoronto.utm.paint;
-
+import javafx.scene.canvas.*;
 import java.util.*;
 
 import javafx.scene.paint.Color;
 
-public class Squiggle extends Observable {
+public class Squiggle extends Shape {
 	ArrayList<Point> points = new ArrayList<>();
 	private int thickness = 1;
 	private Color colour = Color.WHITE;
@@ -56,8 +56,20 @@ public class Squiggle extends Observable {
 			adjPairs.add(tuple);
 			} return adjPairs;
 	}
-	public String toString() {
-		return "" + this.thickness;
+	public void draw(GraphicsContext g) {
+		g.setLineWidth(this.thickness);
+		g.setStroke(this.colour);
+		if (this.fill) {
+			for (Point[] tup : this.adjacentPairs()) {
+				g.strokeLine(tup[0].getX(), tup[0].getY(),
+						tup[1].getX(), tup[1].getY());
+		}
+		}
+		else {
+			for (Point p : this.getPoints()) {
+				g.strokeLine(p.getX(), p.getY(), p.getX(), p.getY());
+			}
+			}
 	}
 	
 

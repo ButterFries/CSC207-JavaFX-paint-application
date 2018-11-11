@@ -1,8 +1,9 @@
 package ca.utoronto.utm.paint;
 
 import javafx.scene.paint.Color;
+import javafx.scene.canvas.*;
 
-public class Rectangle {
+public class Rectangle extends Shape {
 	protected Point origin, diagonal;
 	protected String context;
 	protected int height, width;
@@ -132,6 +133,18 @@ public class Rectangle {
 
 	public void setFill(boolean fill) {
 		this.fill = fill;
+	}
+	public void draw(GraphicsContext g) {
+		Point topLeft = this.findTopLeft();
+		int h = this.height; int w = this.width;
+		g.setStroke(this.colour);
+		g.setLineWidth(this.thickness);
+		
+		if(this.fill) {
+			g.setFill(this.colour);
+			g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
+		}
+		g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
 	}
 	
 }

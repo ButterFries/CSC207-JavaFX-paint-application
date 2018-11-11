@@ -40,7 +40,7 @@ public class Square extends Rectangle {
 		}
 		 
 	}
-	// determines where the origin Point lies on the rectangle
+	// determines where the origin Point lies on the square
 	public void assignContext() {
 		int deltaY = origin.getY() - diagonal.getY();
 		int deltaX = origin.getX() - diagonal.getX();
@@ -54,4 +54,5 @@ public class Square extends Rectangle {
 			this.context = "botright";
 		}
 	}
+	
 }

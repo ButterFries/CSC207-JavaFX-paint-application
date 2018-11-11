@@ -66,167 +66,22 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		
 		i = i + 1;
 		
-		
-		// Draw Circles
-		ArrayList<Circle> circles = this.model.getCircles();
-		for (Circle c : circles) {
-			int x = c.getCentre().getX() - c.getRadius();
-			int y = c.getCentre().getY() - c.getRadius();
-			int radius = 2*c.getRadius();
-			g.setStroke(c.getColour());
-			g.setLineWidth(c.getThickness());
-			
-			if(c.getFill()) {
-				g.setFill(c.getColour());
-				g.fillOval(x, y, radius, radius);
-			}
-			g.strokeOval(x, y, radius, radius);
+		ArrayList<Shape> shapes = this.model.getShapes();
+		ShapeOperator operator = new ShapeOperator();
+		for (Shape s: shapes) {
+			operator.acceptCommand(new DrawCommand(s, g));
 		}
 		
-		// Draw temporary circles while the mouse is dragged
-		Circle c = this.model.getTempCircle();
-		if (c != null) {
-			int x = c.getCentre().getX() - c.getRadius();
-			int y = c.getCentre().getY() - c.getRadius();
-			int radius = 2*c.getRadius();
-			g.setStroke(c.getColour());
-			g.setLineWidth(c.getThickness());
+		Shape[] tempShapes = this.model.getTempShapes();
+		ShapeOperator tempOperator = new ShapeOperator();
+		for (Shape ts: tempShapes) {
+			if (ts != null) {
+				tempOperator.acceptCommand(new DrawCommand(ts, g));
+			}
 			
-			if(c.getFill()) {
-				g.setFill(c.getColour());
-				g.fillOval(x, y, radius, radius);
-			}
-			g.strokeOval(x, y, radius, radius);
 		}
+		operator.operateAll(); tempOperator.operateAll();
 		
-		// Draw Rectangles
-		ArrayList<Rectangle> rectangles = this.model.getRectangles();
-		for (Rectangle r: rectangles) {
-			Point topLeft = r.findTopLeft();
-			int h = r.getHeight(); int w = r.getWidth();
-			g.setStroke(r.getColour());
-			g.setLineWidth(r.getThickness());
-			
-			if(r.isFill()) {
-				g.setFill(r.getColour());
-				g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
-			}
-			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
-		}
-		
-		// Draw Temporary Rectangles during a drag of the mouse
-		Rectangle r = this.model.getTempRect();
-		if (r != null) {
-			Point topLeft = r.findTopLeft();
-			int h = r.getHeight(); int w = r.getWidth();
-			g.setStroke(r.getColour());
-			g.setLineWidth(r.getThickness());
-			
-			if(r.isFill()) {
-				g.setFill(r.getColour());
-				g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
-			}
-			g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);
-			}
-		
-		//Draw Squares
-		ArrayList<Square> squares = this.model.getSquares();
-		for (Rectangle s: squares) {
-			Point topLeft = s.findTopLeft();
-			int h = s.getHeight(); 
-			g.setStroke(s.getColour());
-			g.setLineWidth(s.getThickness());
-			
-			if(s.isFill()) {
-				g.setFill(s.getColour());
-				g.fillRect(topLeft.getX(), topLeft.getY(), h, h);
-			}
-			g.strokeRect(topLeft.getX(), topLeft.getY(), h, h);
-		}
-		Square stemp = this.model.getTempSquare();
-		if (stemp != null) {
-			Point topLeft = stemp.findTopLeft();
-			int h = stemp.getHeight();
-			g.setStroke(stemp.getColour());
-			g.setLineWidth(stemp.getThickness());
-			
-			if(stemp.isFill()) {
-				g.setFill(stemp.getColour());
-				g.fillRect(topLeft.getX(), topLeft.getY(), h, h);
-			}
-			g.strokeRect(topLeft.getX(), topLeft.getY(), h, h);
-			}
-		
-		
-		//Draw Polylines
-		this.drawPolylines(g);
-		// Draw Squiggles
-		this.drawSquiggles(g);
-		
-
-		
-	}
-	
-	public void drawPolylines(GraphicsContext g) {
-		ArrayList<Polyline> polylines = this.model.getPolylines();
-		for (Polyline pline : polylines) {
-			g.setStroke(pline.getColour());
-			g.setLineWidth(pline.getThickness());
-			ArrayList<Line> lines = pline.getLines();
-				for (Line l: lines) {
-					g.strokeLine(l.getOrigin().getX(), l.getOrigin().getY(), 
-							l.getEnd().getX(), l.getEnd().getY());
-				}
-			}
-		
-		Polyline temPoly = this.model.getTempPolyline();
-		if (temPoly != null) {
-			g.setStroke(temPoly.getColour()); // 
-			g.setLineWidth(temPoly.getThickness()); 
-			ArrayList<Line> tlines = temPoly.getLines();
-			for (Line tl: tlines) {
-				g.strokeLine(tl.getOrigin().getX(), tl.getOrigin().getY(), 
-						tl.getEnd().getX(), tl.getEnd().getY());
-			}
-		}
-		
-	}
-	
-	public void drawSquiggles(GraphicsContext g) {
-		ArrayList<Squiggle> squiggles = this.model.getSquiggles();
-		for (Squiggle s: squiggles) {
-			g.setLineWidth(s.getThickness());
-			g.setStroke(s.getColour());
-			if (s.isFill()) {
-				for (Point[] tup : s.adjacentPairs()) {
-					g.strokeLine(tup[0].getX(), tup[0].getY(),
-							tup[1].getX(), tup[1].getY());
-			}
-			}
-			else {
-				for (Point p : s.getPoints()) {
-					g.strokeLine(p.getX(), p.getY(), p.getX(), p.getY());
-				}
-				}
-				
-			}
-		
-		Squiggle ts = this.model.getTempSquiggle();
-		if (ts != null) {
-			g.setLineWidth(ts.getThickness());
-			g.setStroke(ts.getColour());
-			if (ts.isFill()) {
-				for (Point[] ctup : ts.adjacentPairs()) {
-					g.strokeLine(ctup[0].getX(), ctup[0].getY(),
-							ctup[1].getX(), ctup[1].getY());
-			}
-				
-			}
-			else {
-			for (Point cp : ts.getPoints()) {
-				g.strokeLine(cp.getX(), cp.getY(), cp.getX(), cp.getY());
-			}}
-		}
 		
 	}
 	
