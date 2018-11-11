@@ -36,37 +36,18 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 			button.setOnAction(this);
 		}
 	}
+	
 
 	@Override
 	public void handle(ActionEvent event) {
+		ShapeFactory factory = new ShapeFactory(view);
 		String command = ((Button) event.getSource()).getText();
 		this.view.getPaintPanel().setMode(command);
-		
-		PaintModel paintModel = this.view.getPaintPanel().getModel();
-		boolean fill = this.view.getPaintPanel().getFill();
-		int thickness = this.view.getPaintPanel().getThickness();
+	
 		
 		
+		this.view.getPaintPanel().setStrat(factory.getShapeStrategy(command));
 		
-		if (command == "Circle") {
-			this.view.getPaintPanel().setStrat(new CircleStrategy(paintModel,
-					fill, thickness));
-		}
-		else if (command == "Rectangle") {
-			this.view.getPaintPanel().setStrat(new RectangleStrategy(paintModel, fill,
-					thickness));
-		}
-		else if (command == "Square") {
-			this.view.getPaintPanel().setStrat(new SquareStrategy(paintModel, fill,
-					thickness));
-		}
-		else if (command == "Squiggle") {
-			//this.view.getPaintPanel().setStrat(new SquiggleStrategy());
-		}
-		else if (command == "Polyline") {
-			this.view.getPaintPanel().setStrat(new PolylineStrategy(paintModel, fill,
-					thickness));
-		}
 		System.out.println(command);
 	}
 }
