@@ -50,9 +50,13 @@ public class Polyline extends Shape {
 	public void setFill(boolean fill) {
 		this.fill = fill;
 	}
-	public void draw(GraphicsContext g) {
+	
+	public void setMod(GraphicsContext g) {
 		g.setStroke(this.colour);
 		g.setLineWidth(this.thickness);
+	}
+	public void draw(GraphicsContext g) {
+		
 		ArrayList<Line> lines = this.lines;
 			for (Line l: lines) {
 				g.strokeLine(l.getOrigin().getX(), l.getOrigin().getY(), 

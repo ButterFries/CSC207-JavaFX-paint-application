@@ -134,14 +134,19 @@ public class Rectangle extends Shape {
 	public void setFill(boolean fill) {
 		this.fill = fill;
 	}
+	
+	public void setMod(GraphicsContext g) {
+		g.setStroke(this.colour);
+		g.setLineWidth(this.thickness);
+		g.setFill(this.colour);
+	}
+	
 	public void draw(GraphicsContext g) {
 		Point topLeft = this.findTopLeft();
 		int h = this.height; int w = this.width;
-		g.setStroke(this.colour);
-		g.setLineWidth(this.thickness);
+		
 		
 		if(this.fill) {
-			g.setFill(this.colour);
 			g.fillRect(topLeft.getX(), topLeft.getY(), w, h);
 		}
 		g.strokeRect(topLeft.getX(), topLeft.getY(), w, h);

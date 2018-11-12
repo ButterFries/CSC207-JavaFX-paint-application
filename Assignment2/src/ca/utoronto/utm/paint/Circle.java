@@ -69,15 +69,19 @@ public class Circle extends Shape {
 	public void setColour(Color colour) {
 		this.colour = colour;
 	}
+	
+	public void setMod(GraphicsContext g) {
+		g.setStroke(this.colour);
+		g.setLineWidth(this.thickness);
+		g.setFill(this.colour);
+	}
 	public void draw(GraphicsContext g) {
 		int x = this.centre.getX() - this.radius;
 		int y = this.centre.getY() - this.radius;
 		int radius = 2*this.radius;
-		g.setStroke(this.colour);
-		g.setLineWidth(this.thickness);
+		
 		
 		if(this.getFill()) {
-			g.setFill(this.colour);
 			g.fillOval(x, y, radius, radius);
 		}
 		g.strokeOval(x, y, radius, radius);

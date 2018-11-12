@@ -7,6 +7,7 @@ public abstract class Shape {
 	private boolean fill;
 	private Color colour;
 	
+	public abstract void setMod(GraphicsContext g);
 	public abstract void draw(GraphicsContext g);
 	
 }

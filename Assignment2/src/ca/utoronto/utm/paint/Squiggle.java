@@ -45,7 +45,8 @@ public class Squiggle extends Shape {
 	}
 	public ArrayList<Point> getPoints() {
 		return points;
-	}public void extend(Point p) {
+	}
+	public void extend(Point p) {
 		this.points.add(p);
 	}
 	public ArrayList<Point[]> adjacentPairs(){
@@ -56,9 +57,14 @@ public class Squiggle extends Shape {
 			adjPairs.add(tuple);
 			} return adjPairs;
 	}
-	public void draw(GraphicsContext g) {
+	
+	public void setMod(GraphicsContext g) {
 		g.setLineWidth(this.thickness);
 		g.setStroke(this.colour);
+	}
+	
+	public void draw(GraphicsContext g) {
+		
 		if (this.fill) {
 			for (Point[] tup : this.adjacentPairs()) {
 				g.strokeLine(tup[0].getX(), tup[0].getY(),
