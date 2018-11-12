@@ -69,6 +69,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		ArrayList<Shape> shapes = this.model.getShapes();
 		ShapeOperator operator = new ShapeOperator();
 		for (Shape s: shapes) {
+			operator.acceptCommand(new ModifierCommand(s, g));
 			operator.acceptCommand(new DrawCommand(s, g));
 		}
 		
@@ -76,6 +77,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		ShapeOperator tempOperator = new ShapeOperator();
 		for (Shape ts: tempShapes) {
 			if (ts != null) {
+				tempOperator.acceptCommand(new ModifierCommand(ts, g));
 				tempOperator.acceptCommand(new DrawCommand(ts, g));
 			}
 			
