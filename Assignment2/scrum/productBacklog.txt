@@ -341,6 +341,13 @@ ESTIMATE : 6 hours
 ISSUE    : Clicking the redo option in the edit menu will cause the last
 Shape called by undo in the undo queue to be displayed on the screen.
 --------------------------------------------------------------------------
+TYPE     : USER STORY 13 : pamalpad
+NAME     : Implement clear all feature
+OWNER    : 
+PRIORITY : low
+ESTIMATE : 
+ISSUE    : Clicking the Clear Canvas button in the edit menu on the toolbar will remove all drawn shapes from the canvas.
+-------------------------------------------------------------------------- 
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
