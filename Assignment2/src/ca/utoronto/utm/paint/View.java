@@ -108,6 +108,11 @@ public class View implements EventHandler<ActionEvent> {
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
 		menuItem.setId("edit redo");
+		
+		menuItem = new MenuItem("Clear All");
+		menuItem.setOnAction(this);
+		menu.getItems().add(menuItem);
+		menuItem.setId("edit clear");
 
 		menuBar.getMenus().add(menu);
 		
@@ -200,13 +205,17 @@ public class View implements EventHandler<ActionEvent> {
 			try {
 				thickness = Integer.parseInt(((TextField)event.getSource()).getText());
 				paintPanel.setThickness(thickness);
-			}catch(NumberFormatException e) { }
+			}
+			catch(NumberFormatException e) { }
 		}
 		if (id[0].equals("edit") && id[1].equals("undo")) {
-				model.addDormant();
+			model.addDormant();
 		}
 		if (id[0].equals("edit") && id[1].equals("redo")) {
-				model.delDormant();
+			model.delDormant();
+		}
+		if (id[0].equals("edit") && id[1].equals("clear")) {
+			model.clearAll();
 		}
 	}
 }

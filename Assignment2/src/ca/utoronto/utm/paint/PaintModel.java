@@ -152,6 +152,14 @@ public class PaintModel extends Observable {
 			tempShapes[i] = null;
 		}
 	}
+	
+	public void clearAll() {
+		shapes.clear();
+		this.resetTemps();
+		
+		this.setChanged();
+		this.notifyObservers();
+	}
 	public ArrayList<Shape> getDormant(){
 		return dormantShapes;
 	}
