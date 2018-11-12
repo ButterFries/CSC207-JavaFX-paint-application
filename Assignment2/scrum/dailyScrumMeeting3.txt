@@ -78,7 +78,8 @@ Nov 10, 2018
 	
 Nov 11, 2018
 	Yesterday :
-	Today     :
+	Today     :Trying to figure out how to solve bug 4, need to get rid of the lists in Paint 
+	Model.
 	Obstacles :
 	
 Nov 12, 2018
