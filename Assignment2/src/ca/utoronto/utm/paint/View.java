@@ -102,10 +102,12 @@ public class View implements EventHandler<ActionEvent> {
 		menuItem = new MenuItem("Undo");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
+		menuItem.setId("edit undo");
 
 		menuItem = new MenuItem("Redo");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
+		menuItem.setId("edit redo");
 
 		menuBar.getMenus().add(menu);
 		
@@ -200,7 +202,12 @@ public class View implements EventHandler<ActionEvent> {
 				paintPanel.setThickness(thickness);
 			}catch(NumberFormatException e) { }
 		}
-		
+		if (id[0].equals("edit") && id[1].equals("undo")) {
+				model.addDormant();
+		}
+		if (id[0].equals("edit") && id[1].equals("redo")) {
+				model.delDormant();
+		}
 	}
 }
 

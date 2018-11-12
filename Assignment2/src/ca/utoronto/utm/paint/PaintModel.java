@@ -12,6 +12,7 @@ public class PaintModel extends Observable {
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
+	private ArrayList<Shape> dormantShapes = new ArrayList<Shape>();
 	private Shape[] tempShapes = new Shape[5];
 	private Circle tempCircle = null;
 	private Rectangle tempRect = null;
@@ -128,6 +129,31 @@ public class PaintModel extends Observable {
 
 	public Shape[] getTempShapes() {
 		return tempShapes;
+	}
+	public void addDormant() {
+		if (shapes.size() > 0) {
+			Shape current = shapes.get(shapes.size() - 1);
+			dormantShapes.add(current); shapes.remove(current);
+			this.resetTemps();
+			this.setChanged();
+			this.notifyObservers();
+		}
+	}
+	public void delDormant() {
+		if (dormantShapes.size() > 0) {
+			Shape current = dormantShapes.get(dormantShapes.size() - 1);
+			dormantShapes.remove(current); shapes.add(current);
+			this.setChanged();
+			this.notifyObservers();
+		}
+	}
+	public void resetTemps() {
+		for(int i=0; i < tempShapes.length; i++) {
+			tempShapes[i] = null;
+		}
+	}
+	public ArrayList<Shape> getDormant(){
+		return dormantShapes;
 	}
 	
 }
