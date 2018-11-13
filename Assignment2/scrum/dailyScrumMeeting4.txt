@@ -71,14 +71,14 @@ Nov 10, 2018
 	Obstacles : Understanding how factory design pattern works with interfaces rather than abstract classes
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Completed Bug9.
+	Today     : Completed Bug8. 
+	Obstacles : Problems with properties relating to squiggle and polyline.
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Completed Bug8.
+	Today     : Added UserStory13 and implemented UserStory13.
+	Obstacles : Clearing arrays rather than arraylists, treating shapes like a stack.
 
 Nov 13, 2018
 	Yesterday :
