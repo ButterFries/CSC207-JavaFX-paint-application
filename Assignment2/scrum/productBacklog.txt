@@ -349,7 +349,7 @@ ESTIMATE :
 ISSUE    : Clicking the Clear Canvas button in the edit menu on the toolbar will remove all drawn shapes from the canvas.
 -------------------------------------------------------------------------- 
 --------------------------------------------------------------------------
-TYPE     : BUG 10 : najdamic
+TYPE     : BUG 11 : najdamic
 NAME     : Square Drawing is broken
 OWNER    :  
 PRIORITY :medium
