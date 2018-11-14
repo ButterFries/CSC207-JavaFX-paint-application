@@ -8,7 +8,7 @@ public class Rectangle extends Shape {
 	protected String context;
 	protected int height, width;
 	protected int thickness = 1;
-	protected Color colour = Color.WHITE;
+	protected Color colour;
 	protected boolean fill = false;
 	
 	

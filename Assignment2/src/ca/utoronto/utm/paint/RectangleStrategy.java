@@ -9,7 +9,7 @@ public class RectangleStrategy implements ShapeStrategy{
 	public PaintPanel paintPanel;
 	public Rectangle rectangle;
 	
-	private Color current_colour = Color.WHITE;
+	private Color current_colour;
 	private boolean fill;
 	private int thickness;
 	

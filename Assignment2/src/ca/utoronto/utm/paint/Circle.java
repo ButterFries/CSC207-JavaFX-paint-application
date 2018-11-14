@@ -14,7 +14,7 @@ public class Circle extends Shape {
 	public Circle(Point centre, int radius) {
 		this.centre = centre;
 		this.radius = radius;
-		this.colour = Color.WHITE;
+		this.colour = Color.BLACK;
 	}
 	
 	public Circle(Point centre, int radius, Color colour) {

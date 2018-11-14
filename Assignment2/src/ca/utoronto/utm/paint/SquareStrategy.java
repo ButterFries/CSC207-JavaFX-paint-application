@@ -7,7 +7,7 @@ public class SquareStrategy implements ShapeStrategy {
 	public PaintPanel paintPanel;
 	public Square square;
 	private PaintModel model;
-	private Color current_colour = Color.WHITE;
+	private Color current_colour;
 	private boolean fill;
 	private int thickness;
 	
