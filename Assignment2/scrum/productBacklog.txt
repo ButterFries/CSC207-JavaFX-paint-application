@@ -348,6 +348,15 @@ PRIORITY : low
 ESTIMATE : 
 ISSUE    : Clicking the Clear Canvas button in the edit menu on the toolbar will remove all drawn shapes from the canvas.
 -------------------------------------------------------------------------- 
+--------------------------------------------------------------------------
+TYPE     : BUG 11 : najdamic
+NAME     : Square drawing is broken
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : When creating a square from the upper left side the square will move with the
+mouse drag and have a delayed increase in size
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
