@@ -56,34 +56,34 @@ Nov 7, 2018
 	Obstacles : None
 
 Nov 8, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Modified the rectangle class to work with user stories 5, 6, and 7
+	Today     : None
+	Obstacles : None
 
 Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : None
+	Today     : None
+	Obstacles : None
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : None
+	Today     : Started looking at how css functions with javafx, and found how loading a .css file works
+	Obstacles : The .css file couldn't be found at first, since the string couldn't be converted to the file's address
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Took a look at how css functions with javafx.
+	Today     : Started implementing the css into the assignment
+	Obstacles : Some of the css elements overlap another, and the highlighted versions of elements were difficult to find
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Started implementing css into the assignment
+	Today     : Finished the default theme and started on the dark theme.
+	Obstacles : Finding the highlighted counterpart for most elements in the dark theme.
 
 Nov 13, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Finished the default theme and started the dark theme.
+	Today     : Fished the dark theme and warm theme.
+	Obstacles : Implementing colour changes to buttons.
 
 Nov 14, 2018
 	Yesterday :
