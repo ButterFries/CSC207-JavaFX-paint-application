@@ -7,7 +7,7 @@ public class PolylineStrategy implements ShapeStrategy{
 	private Polyline polyline;
 	private PaintModel model;
 	private Line line;
-	private Color current_colour = Color.WHITE;
+	private Color current_colour;
 	private boolean fill;
 	private int thickness;
 	

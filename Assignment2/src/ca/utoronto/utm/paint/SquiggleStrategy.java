@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 public class SquiggleStrategy implements ShapeStrategy {
 	private Squiggle squiggle;
 	private PaintModel model;
-	private Color current_colour = Color.WHITE;
+	private Color current_colour;
 	private boolean fill;
 	private int thickness;
 	

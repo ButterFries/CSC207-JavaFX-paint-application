@@ -78,6 +78,7 @@ public class View implements EventHandler<ActionEvent> {
 		menuItem = new MenuItem("Exit");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
+		menuItem.setId("file exit");
 
 		menuBar.getMenus().add(menu);
 
@@ -216,6 +217,9 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		if (id[0].equals("edit") && id[1].equals("clear")) {
 			model.clearAll();
+		}
+		if(id[0].equals("file") && id[1].equals("exit")) {
+			System.exit(0);
 		}
 	}
 }

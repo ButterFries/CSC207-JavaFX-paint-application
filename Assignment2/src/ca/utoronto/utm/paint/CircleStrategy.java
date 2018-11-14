@@ -15,7 +15,7 @@ public class CircleStrategy implements ShapeStrategy{
 	private PaintModel model;
 	//private PaintPanel paintPanel;
 	private Circle circle;
-	private Color current_colour = Color.WHITE;
+	private Color current_colour;
 	
 	private boolean fill;
 	private int thickness; 

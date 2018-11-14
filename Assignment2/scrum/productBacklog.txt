@@ -373,6 +373,15 @@ PRIORITY :medium
 ESTIMATE :
 ISSUE    : Color automatically defaults to white after reselecting a drawing mode
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 15 : najdamic
+NAME     : Implement exit method
+OWNER    :  
+PRIORITY :medium
+ESTIMATE :
+ISSUE    : Implement the exit method in the panel so that when pressed the java application 
+closes
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
