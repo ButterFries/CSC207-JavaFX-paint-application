@@ -353,7 +353,7 @@ TYPE     : BUG 11 : najdamic
 NAME     : Square Drawing is broken
 OWNER    :  
 PRIORITY :medium
-ESTIMATE : 
+ESTIMATE :
 ISSUE    : When drawing the square from the top left side the corner of the square will move
 up and down and have a delayed size increase
 --------------------------------------------------------------------------

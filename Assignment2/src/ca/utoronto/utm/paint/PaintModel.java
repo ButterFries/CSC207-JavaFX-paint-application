@@ -9,16 +9,24 @@ public class PaintModel extends Observable {
 	/*private ArrayList<Circle> circles = new ArrayList<Circle>();
 	private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();
 	private ArrayList<Squiggle> squiggles = new ArrayList<Squiggle>();
+
 	private ArrayList<Polyline> polylines = new ArrayList<Polyline>(); */
-	private ArrayList<Square> squares = new ArrayList<Square>(); 
+	//private ArrayList<Square> squares = new ArrayList<Square>(); 
+	//private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
+	//private ArrayList<Square> squares = new ArrayList<Square>();
+
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
 	private ArrayList<Shape> dormantShapes = new ArrayList<Shape>();
 	private Shape[] tempShapes = new Shape[5];
 	/*private Circle tempCircle = null;
 	private Rectangle tempRect = null;
 	private Squiggle tempSquiggle = null;
-	private Polyline tempPolyline = null; */
+
+	/*private Polyline tempPolyline = null; 
 	private Square tempSquare = null; 
+	private Polyline tempPolyline = null;
+	private Square tempSquare = null;*/
+
 
 	public void addPoint(Point p) {
 		this.points.add(p);
@@ -38,8 +46,8 @@ public class PaintModel extends Observable {
 	}
 	
 	//public ArrayList<Circle> getCircles() {
-		//return circles;
-	//}
+		//return circles;}
+
 	
 	public void setTempCircle(Circle c) {
 		//this.tempCircle = c;
@@ -57,8 +65,9 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	//public ArrayList<Rectangle> getRectangles() {
-		//return rectangles;
-	//}
+		//return rectangles;}
+	
+
 	public void setTempRect(Rectangle r) {
 		//this.tempRect = r;
 		this.tempShapes[1] = r;
@@ -66,17 +75,22 @@ public class PaintModel extends Observable {
 		this.notifyObservers();
 	}
 	//public Rectangle getTempRect() {
-		//return this.tempRect;	}
+		//return this.tempRect;}
+	
 	//public ArrayList<Squiggle> getSquiggles() {
 		//return this.squiggles;}
+	
 	public void addSquiggle(Squiggle s) {
 		//this.squiggles.add(s);
 		this.shapes.add(s);
 		this.setChanged();
 		this.notifyObservers();
-	//}public Squiggle getTempSquiggle() {
-		//return tempSquiggle;
-	}public void setTempSquiggle(Squiggle s) {
+
+	}
+	//public Squiggle getTempSquiggle() {
+		//return tempSquiggle;}
+	
+	public void setTempSquiggle(Squiggle s) {
 		//this.tempSquiggle = s;
 		this.tempShapes[2] = s;
 		this.setChanged();
@@ -99,18 +113,19 @@ public class PaintModel extends Observable {
 		//return this.tempPolyline;}
 	
 	//public ArrayList<Polyline> getPolylines(){
-		//return this.polylines;
-	//}
+	//	return this.polylines;}
+	
 	public void addSquares(Square s) {
-		this.squares.add(s);
+		//this.squares.add(s);
 		this.shapes.add(s);
 		this.setChanged();
 		this.notifyObservers();
 	}
 	//public ArrayList<Square> getSquares(){
 		//return this.squares;}
+
 	public void setTempSquare(Square p) {
-		this.tempSquare = p;
+		//this.tempSquare = p;
 		this.tempShapes[4] = p;
 		this.setChanged();
 		this.notifyObservers();

@@ -24,7 +24,9 @@ public class Square extends Rectangle {
 			x = origin.getX(); y = origin.getY() - height;
 			return new Point(x, y);
 		case "botright":
-			x = origin.getX() - width; y = diagonal.getY() - height;
+			//x = origin.getX() - width; y = diagonal.getY() - height;
+			//return new Point(x, y);
+			x = origin.getX() - width; y = origin.getY() - height;
 			return new Point(x, y);
 		default:
 			return origin;}
