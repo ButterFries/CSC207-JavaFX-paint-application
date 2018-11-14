@@ -120,14 +120,14 @@ public class View implements EventHandler<ActionEvent> {
 
 		menu = new Menu("Colour");
 		
-		menuItem = new MenuItem("White");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 1.0 1.0 1.0 1.0");
-		menu.getItems().add(menuItem);
-		
 		menuItem = new MenuItem("Black");
 		menuItem.setOnAction(this);
 		menuItem.setId("colour RGBA 0.0 0.0 0.0 1.0");
+		menu.getItems().add(menuItem);
+		
+		menuItem = new MenuItem("White");
+		menuItem.setOnAction(this);
+		menuItem.setId("colour RGBA 1.0 1.0 1.0 1.0");
 		menu.getItems().add(menuItem);
 		
 		menuItem = new MenuItem("Red");

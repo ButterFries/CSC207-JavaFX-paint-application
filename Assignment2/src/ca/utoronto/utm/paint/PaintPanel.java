@@ -40,7 +40,8 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
-		this.setStyle("-fx-background-color: blue");
+		//this.setStyle("-fx-background-color: Blue");
+		this.setStyle("-fx-background-color: White");
 
 		this.addEventHandler(MouseEvent.ANY, this);
 
@@ -61,10 +62,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
 		
 		g.setLineWidth(1);
-		g.setStroke(Color.WHITE);
-		g.strokeText("i=" + i, 50, 75);
+		//g.setStroke(Color.WHITE);
+		//g.setStroke(Color.BLUE);
+		//g.strokeText("i=" + i, 50, 75);
 		
-		i = i + 1;
+		//i = i + 1;
 		
 		ArrayList<Shape> shapes = this.model.getShapes();
 		ShapeOperator operator = new ShapeOperator();

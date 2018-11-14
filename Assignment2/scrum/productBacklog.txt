@@ -357,6 +357,22 @@ ESTIMATE :
 ISSUE    : When drawing the square from the top left side the corner of the square will move
 up and down and have a delayed size increase
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 14 : najdamic
+NAME     : Change blue screen and remove i
+OWNER    :  najdamic
+PRIORITY :medium
+ESTIMATE :
+ISSUE    : Doesn't look good and the i interferes with the user's drawing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : Bug 12 : najdamic
+NAME     : Change blue screen and remove i
+OWNER    :  
+PRIORITY :medium
+ESTIMATE :
+ISSUE    : Color automatically defaults to white after reselecting a drawing mode
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
