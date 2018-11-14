@@ -20,7 +20,8 @@ public class View implements EventHandler<ActionEvent> {
 
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
-
+	private Scene scene;
+	
 	public View(PaintModel model, Stage stage) {
 
 		this.model = model;
@@ -37,7 +38,10 @@ public class View implements EventHandler<ActionEvent> {
 		root.setCenter(this.paintPanel);
 		root.setLeft(this.shapeChooserPanel);
 
-		Scene scene = new Scene(root);
+		scene = new Scene(root);
+		scene.getStylesheets().add(
+				getClass().getResource("ThemeDefault.css").toExternalForm()
+		);
 		stage.setScene(scene);
 		stage.setTitle("Paint");
 		stage.show();
@@ -80,7 +84,29 @@ public class View implements EventHandler<ActionEvent> {
 		menu.getItems().add(menuItem);
 
 		menuBar.getMenus().add(menu);
+		
+		// Another menu for Themes
 
+		menu = new Menu("Themes");
+
+		menuItem = new MenuItem("Default");
+		menuItem.setOnAction(this);
+		menuItem.setId("theme default");
+		menu.getItems().add(menuItem);
+
+		menuItem = new MenuItem("Night");
+		menuItem.setOnAction(this);
+		menuItem.setId("theme night");
+		menu.getItems().add(menuItem);
+
+		menuItem = new MenuItem("Warm");
+		menuItem.setOnAction(this);
+		menuItem.setId("theme warm");
+		menu.getItems().add(menuItem);
+		
+		menuBar.getMenus().add(menu);
+
+		
 		// Another menu for Edit
 
 		menu = new Menu("Edit");
@@ -172,6 +198,7 @@ public class View implements EventHandler<ActionEvent> {
 		text.setId("thickness");
 		CustomMenuItem custom = new CustomMenuItem(text);
 		custom.setDisable(true);
+		custom.getStyleClass().add(".custom-menu-item");
 		
 		menu.getItems().add(custom);
 		
@@ -189,8 +216,33 @@ public class View implements EventHandler<ActionEvent> {
 		} catch (ClassCastException e) {
 			id = ((TextField)event.getSource()).getId().split(" ");
 		}
+		
+		if (id[0].equals("theme")) {
 			
-		if (id[0].equals("colour")){
+			scene.getStylesheets().clear();
+			
+			if(id[1].equals("default")) {
+				scene.getStylesheets().add(
+						getClass().getResource("ThemeDefault.css").toExternalForm()
+				);
+			}
+			
+			else if(id[1].equals("warm")) {
+				scene.getStylesheets().add(
+						getClass().getResource("ThemeWarm.css").toExternalForm()
+				);
+			}
+			
+			else if(id[1].equals("night")) {
+				scene.getStylesheets().add(
+						getClass().getResource("ThemeNight.css").toExternalForm()
+				);
+			}
+			
+			
+		}
+		
+		if (id[0].equals("colour")) {
 			Color colour = new Color(Double.parseDouble(id[2]), Double.parseDouble(id[3]), Double.parseDouble(id[4]), Double.parseDouble(id[5]));
 			paintPanel.setColour(colour);
 		}

@@ -1,0 +1,26 @@
+
+.button {
+    -fx-text-fill: brown;
+}
+
+.root {
+    -fx-accent: #ff9900;
+}
+
+.menu-item {
+    -fx-padding: 4 4 4 4;
+}
+
+.menu-item .label {
+    -fx-text-fill: brown;
+    -fx-background-color: white;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    -fx-background-color: #ff9900;
+}
+
+.custom-menu-item {
+    -fx-opacity: 1.0;
+}}

@@ -1,0 +1,22 @@
+
+.root {
+    -fx-accent: #0093ff;
+}
+
+.menu-item {
+    -fx-padding: 4 4 4 4;
+}
+
+.menu-item .label {
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    -fx-background-color: #0093ff;
+}
+
+.custom-menu-item {
+    -fx-opacity: 1.0;
+}

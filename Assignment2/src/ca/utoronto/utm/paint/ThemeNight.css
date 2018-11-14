@@ -1,0 +1,45 @@
+
+.root {
+    -fx-accent: #2ECC71;
+    -fx-text-fill: white;
+    -fx-background-color: gray;
+}
+
+.menu-bar {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: 
+        #8c8c8c,
+        linear-gradient(#8c8c8c 0%, #8c8c8c 49%, #737373 50%, #737373 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-text-fill: white;
+}
+
+.menu-item {
+    -fx-padding: 4 4 4 4;
+    -fx-text-fill: white;
+    -fx-background-color: gray;
+}
+
+.menu-item .label {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+    -fx-background-color: #2ECC71;
+}
+
+.menu-item:focused {
+    -fx-text-fill: white;
+    -fx-background-color: #2ECC71;
+}
+
+.custom-menu-item {
+    -fx-opacity: 1.0;
+}
