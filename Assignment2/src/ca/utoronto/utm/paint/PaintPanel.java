@@ -105,6 +105,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	public String getMode() {
+		return mode;
+	}
 	
 	public void setColour(Color colour) {
 		this.current_colour = colour;
@@ -132,6 +135,12 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	public void setStrat(ShapeStrategy strategy) {
 		this.strategy = strategy;
+	}
+	
+	public void finishStrat() {
+		if (this.strategy.getClass() == PolylineStrategy.class) {
+			((PolylineStrategy) this.strategy).stopPolyline();
+		}
 	}
 
 	public PaintModel getModel() {
