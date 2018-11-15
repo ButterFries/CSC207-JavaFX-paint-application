@@ -42,9 +42,12 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 	public void handle(ActionEvent event) {
 		ShapeFactory factory = new ShapeFactory(view);
 		String command = ((Button) event.getSource()).getText();
-		this.view.getPaintPanel().setMode(command);
-	
 		
+		if (this.view.getPaintPanel().getMode().equals("Polyline")) {
+			this.view.getPaintPanel().finishStrat();
+		}
+		
+		this.view.getPaintPanel().setMode(command);
 		
 		this.view.getPaintPanel().setStrat(factory.getShapeStrategy(command));
 		
