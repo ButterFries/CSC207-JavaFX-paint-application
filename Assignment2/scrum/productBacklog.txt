@@ -371,7 +371,7 @@ NAME     : Color auto changes with new shape
 OWNER    :  
 PRIORITY :medium
 ESTIMATE :
-ISSUE    : Color automatically defaults to white after reselecting a drawing mode
+ISSUE    : Other already drawn shapes change to new color after selecting new color
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : USER STORY 15 : najdamic
