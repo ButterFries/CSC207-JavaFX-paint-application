@@ -382,6 +382,22 @@ ESTIMATE :
 ISSUE    : Implement the exit method in the panel so that when pressed the java application 
 closes
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : Bug 13 : czarnec8
+NAME     : Polyline not saving when changing shapes
+OWNER    : czarnec8
+PRIORITY : medium
+ESTIMATE : 1 hour
+ISSUE    : Polylines do not save if the user clicks to select a new shape instead of double clicking
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 16 : czarnec8
+NAME     : Full rgb selection
+OWNER    : czarnec8
+PRIORITY : low
+ESTIMATE : 4 hours
+ISSUE    : Implement textfields to let the user set any rgb colour
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
