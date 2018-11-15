@@ -13,7 +13,6 @@ import java.util.Observer;
 
 public class CircleStrategy implements ShapeStrategy{
 	private PaintModel model;
-	//private PaintPanel paintPanel;
 	private Circle circle;
 	private Color current_colour;
 	
@@ -27,9 +26,6 @@ public class CircleStrategy implements ShapeStrategy{
 		
 	}
 	
-	public CircleStrategy() {
-		
-	}
 	public void setColour(Color current_colour) {
 		this.current_colour = current_colour;
 	}

@@ -367,7 +367,7 @@ ISSUE    : Doesn't look good and the i interferes with the user's drawing
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
 TYPE     : Bug 12 : najdamic
-NAME     : Change blue screen and remove i
+NAME     : Color auto changes with new shape
 OWNER    :  
 PRIORITY :medium
 ESTIMATE :
