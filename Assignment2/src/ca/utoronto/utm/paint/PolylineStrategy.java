@@ -28,6 +28,10 @@ public class PolylineStrategy implements ShapeStrategy{
 		this.thickness = thickness;
 	}
 
+	public void stopPolyline() {
+		this.model.addPolyline(this.polyline);
+		this.polyline = null; this.line = null;
+	}
 	
 	@Override
 	public void mEvent(MouseEvent event) {
@@ -49,8 +53,7 @@ public class PolylineStrategy implements ShapeStrategy{
 			this.polyline = polyl; this.line = line;
 		}
 		else if (e.getClickCount() == 2) { 
-			this.model.addPolyline(this.polyline);
-			this.polyline = null; this.line = null;
+			stopPolyline();
 		}
 		else {
 			this.line.setEnd(point);
