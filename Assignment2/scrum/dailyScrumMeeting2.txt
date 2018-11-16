@@ -27,7 +27,7 @@ Nov 1, 2018
 
 Nov 2, 2018
 	Yesterday :
-	Today     :
+	Today     :Emailed group members set up group chat to discuss progress.
 	Obstacles :
 
 Nov 3, 2018
@@ -64,22 +64,26 @@ Nov 8, 2018
 
 Nov 9, 2018
 	Yesterday :
-	Today     :
+	Today     :Completed Bug1, Started Bug2 and realized that Javafx implements
+		   this by default, so started Bug5.
 	Obstacles :
 
 Nov 10, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+	Yesterday : Started but did not finish Bug5.
+	Today     : Finished Bug5, started UserStory’s 8 and 9 which deal with
+	           implementing Polyline and Square functionality.
+	Obstacles : Generating a Polyline in construction is difficult.
 	
 Nov 11, 2018
-	Yesterday :
-	Today     :
+	Yesterday : 
+	Today     :Started Bug7 dealing with the architecture for drawing shapes.
 	Obstacles :
 	
 Nov 12, 2018
-	Yesterday :
-	Today     :
+	Yesterday :Finished Bug7 implemented command design pattern for
+		   drawing shapes.
+	Today     :Created UserStorys 10 and 11 which deal with implementing
+	           undo and redo commands.
 	Obstacles :
 
 Nov 13, 2018
@@ -91,3 +95,8 @@ Nov 14, 2018
 	Yesterday :
 	Today     :
 	Obstacles :
+Nov 15, 2018
+	Yesterday :
+	Today     :Updated all classes with JavaDoc in appropriate areas.
+	Obstacles :
+
