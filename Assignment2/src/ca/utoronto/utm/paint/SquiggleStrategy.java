@@ -2,7 +2,13 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
+/**
+ * A SquiggleStrategy class has a Squiggle, a PaintModel, a paint
+ * and style fields: a current_colour, a fill and a thickness.
+ * This class is called to Instantiate a Squiggle Object based
+ * off of MouseEvents.
+ *
+ */
 public class SquiggleStrategy implements ShapeStrategy {
 	private Squiggle squiggle;
 	private PaintModel model;
