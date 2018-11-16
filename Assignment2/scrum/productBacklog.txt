@@ -406,6 +406,15 @@ PRIORITY : high
 ESTIMATE : 1 hour
 ISSUE    : Program crashes if polyline is de-selected while no polyline is drawn
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : Bug 15 : czarnec8
+NAME     : Deleting tempObjects
+OWNER    : czarnec8
+PRIORITY : low
+ESTIMATE : 2 hours
+ISSUE    : When a new object is placed, the tempObject associated to it is not deleted until a new 
+tempObject is created, causing transluctent objects to be twice as opaque
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
