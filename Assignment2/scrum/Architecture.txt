@@ -38,7 +38,14 @@ DESIGN PATTERNS USED
 	discuss it below. Only add design patterns if they simplify and improve
 	the code. I see at least two that would greatly improve code. 
 		
-	Strategy:
+	Strategy: The strategy design pattern is used to handle mouse events on the canvas to
+	build the correct shape and add it to the PaintModel. Each concrete subclass of shape has
+	its own strategy that is used by the PaintPanel. Each strategy has appropriate code for mouse events
+	that handle the construction of its corresponding shape. Formerly, the shapes were constructed and
+	added to the PaintModel all in the PaintPanel. The usage of the strategy design pattern makes the methods
+	used to create shapes from mouse events modular. This makes it easier to add new shapes, as different new
+	shapes can be added as their own separate strategies, reducing conflict, and making them less reliant
+	on the PaintPanel. 
 	
 	Command: 
 	
