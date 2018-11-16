@@ -1,49 +1,5 @@
 # Fill in, commit and push each day.
 # Group Member: Manoj Pamalpadi (pamalpad)
-Oct 28, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 29, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 30, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Oct 31, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 1, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 2, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 3, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 4, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
-
-Nov 5, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
 
 Nov 6, 2018
 	Yesterday :
@@ -60,10 +16,6 @@ Nov 8, 2018
 	Today     : Claimed Bug9, Bug10.
 	Obstacles : Understanding how to implement the factory and strategy design pattern for their respective bugs.
 
-Nov 9, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
 
 Nov 10, 2018
 	Yesterday : Researching factory design pattern
@@ -80,12 +32,9 @@ Nov 12, 2018
 	Today     : Added UserStory13 and implemented UserStory13.
 	Obstacles : Clearing arrays rather than arraylists, treating shapes like a stack.
 
-Nov 13, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+Nov 15, 2018
+	Yesterday : Completed UserStory13
+	Today     : Fixed Bug12
+	Obstacles : Finding the source of the color issue, spent too much time looking at PaintModel.
 
-Nov 14, 2018
-	Yesterday :
-	Today     :
-	Obstacles :
+
