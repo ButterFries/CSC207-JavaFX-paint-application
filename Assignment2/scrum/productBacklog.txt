@@ -366,7 +366,7 @@ ESTIMATE :
 ISSUE    : Doesn't look good and the i interferes with the user's drawing
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
-TYPE     : Bug 12 : najdamic
+TYPE     : Bug 12 : pamalpad
 NAME     : Color auto changes with new shape
 OWNER    :  
 PRIORITY :medium

@@ -19,10 +19,11 @@ public class CircleStrategy implements ShapeStrategy{
 	private boolean fill;
 	private int thickness; 
 	
-	public CircleStrategy(PaintModel paintModel, boolean fill, int thickness) {
+	public CircleStrategy(PaintModel paintModel, boolean fill, int thickness, Color current_colour) {
 		this.model = paintModel;
 		this.fill = fill;
 		this.thickness = thickness;
+		this.current_colour = current_colour;
 		
 	}
 	

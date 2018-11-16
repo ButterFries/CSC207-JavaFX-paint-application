@@ -1,5 +1,7 @@
 package ca.utoronto.utm.paint;
 
+import javafx.scene.paint.Color;
+
 public class ShapeFactory {
 	
 	private View view;
@@ -13,22 +15,23 @@ public class ShapeFactory {
 		PaintModel paintModel = this.view.getPaintPanel().getModel();
 		boolean fill = this.view.getPaintPanel().getFill();
 		int thickness = this.view.getPaintPanel().getThickness();
+		Color colour = this.view.getPaintPanel().getColour();
 		
 		if (command.equals("Circle")) {
-			return new CircleStrategy(paintModel, fill, thickness);
+			return new CircleStrategy(paintModel, fill, thickness, colour);
 			}
 		else if (command.equals("Rectangle")) {
-			return new RectangleStrategy(paintModel, fill, thickness);
+			return new RectangleStrategy(paintModel, fill, thickness, colour);
 			}
 		else if (command.equals("Square")) {
-			return new SquareStrategy(paintModel, fill, thickness);
+			return new SquareStrategy(paintModel, fill, thickness, colour);
 			}
 		else if (command.equals("Squiggle")) {
-			return new SquiggleStrategy(paintModel, fill, thickness);
+			return new SquiggleStrategy(paintModel, fill, thickness, colour);
 			
 			}
 		else if (command.equals("Polyline")) {
-			return new PolylineStrategy(paintModel, fill, thickness);
+			return new PolylineStrategy(paintModel, fill, thickness, colour);
 			}
 		return null;
 		
