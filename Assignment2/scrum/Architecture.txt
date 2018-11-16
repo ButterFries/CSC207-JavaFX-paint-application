@@ -39,10 +39,20 @@ DESIGN PATTERNS USED
 	the code. I see at least two that would greatly improve code. 
 		
 	Strategy:
+	
 	Command: 
+	
 	Singleton:
 	Composite:
-	Factory:
+	
+	Factory: The factory design pattern is used to return the appropriate strategy
+	for the shape chosen from clicking its respective button. ShapeFactory returns the 
+	correct ShapeStrategy subclass from the string passed into it. The PaintPanels current strategy is then
+	set to the one returned from the factory. This simplifies the code involved in choosing the shape, as
+	an appropriate strategy can be created by just calling the getShapeStrategy method.
+	Adding new shapes to the ShapeChooserPanel is simpler too, as the ShapeStrategy needed
+	can just be added to ShapeFactory. 
+	
 	Builder:
 	Observer/Observable:
 	... (any others you find useful) ...
