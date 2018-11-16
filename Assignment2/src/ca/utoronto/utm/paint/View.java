@@ -1,17 +1,21 @@
 
 package ca.utoronto.utm.paint;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CustomMenuItem;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class View implements EventHandler<ActionEvent> {
@@ -21,6 +25,8 @@ public class View implements EventHandler<ActionEvent> {
 	private PaintPanel paintPanel;
 	private ShapeChooserPanel shapeChooserPanel;
 	private Scene scene;
+	
+	private ArrayList<TextField> colours = new ArrayList<TextField>();
 	
 	public View(PaintModel model, Stage stage) {
 
@@ -107,7 +113,6 @@ public class View implements EventHandler<ActionEvent> {
 		
 		menuBar.getMenus().add(menu);
 
-		
 		// Another menu for Edit
 
 		menu = new Menu("Edit");
@@ -144,33 +149,33 @@ public class View implements EventHandler<ActionEvent> {
 		menuBar.getMenus().add(menu);
 		
 		// Another menu for Colour
+		
+		String colours[] = {"Red", "Green", "Blue", "Alpha"};
 
 		menu = new Menu("Colour");
 		
-		menuItem = new MenuItem("Black");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 0.0 0.0 0.0 1.0");
-		menu.getItems().add(menuItem);
+		for (String colour : colours) {
+			
+			Text label = new Text(colour+" (0.0 - 1.0)");
+			label.setId("label colour "+colour);
+			CustomMenuItem custom = new CustomMenuItem(label);
+			custom.setDisable(true);
+			custom.getStyleClass().add(".custom-menu-item");
+			menu.getItems().add(custom);
+			
+			TextField text = new TextField("0.0");
+			text.setOnAction(this);
+			text.setId("colour "+colour);
+			custom = new CustomMenuItem(text);
+			custom.setDisable(true);
+			custom.getStyleClass().add(".custom-menu-item");
+			menu.getItems().add(custom);
+			
+			this.colours.add(text);
+			
+		}
 		
-		menuItem = new MenuItem("White");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 1.0 1.0 1.0 1.0");
-		menu.getItems().add(menuItem);
-		
-		menuItem = new MenuItem("Red");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 1.0 0.0 0.0 1.0");
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Green");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 0.0 1.0 0.0 1.0");
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Blue");
-		menuItem.setOnAction(this);
-		menuItem.setId("colour RGBA 0.0 0.0 0.8 1.0");
-		menu.getItems().add(menuItem);
+		this.colours.get(3).setText("1.0");
 
 		menuBar.getMenus().add(menu);
 		
@@ -211,10 +216,13 @@ public class View implements EventHandler<ActionEvent> {
 	@Override
 	public void handle(ActionEvent event) {
 		
-		String[] id;
-		try {
+		// Splits information stored in the event id
+		
+		String[] id = null;
+		if (event.getSource() instanceof MenuItem) {
 			id = ((MenuItem)event.getSource()).getId().split(" ");
-		} catch (ClassCastException e) {
+		}
+		else if (event.getSource() instanceof TextField) {
 			id = ((TextField)event.getSource()).getId().split(" ");
 		}
 		
@@ -244,8 +252,19 @@ public class View implements EventHandler<ActionEvent> {
 		}
 		
 		if (id[0].equals("colour")) {
-			Color colour = new Color(Double.parseDouble(id[2]), Double.parseDouble(id[3]), Double.parseDouble(id[4]), Double.parseDouble(id[5]));
-			paintPanel.setColour(colour);
+			
+			try {
+			
+				Color colour = new Color(Double.parseDouble(colours.get(0).getText()), 
+										 Double.parseDouble(colours.get(1).getText()), 
+										 Double.parseDouble(colours.get(2).getText()), 
+										 Double.parseDouble(colours.get(3).getText()));
+				
+				paintPanel.setColour(colour);
+				System.out.println(Double.parseDouble(colours.get(1).getText()));
+			
+			} catch(NumberFormatException e) { }
+		
 		}
 		
 		if (id[0].equals("fill_style")) {
