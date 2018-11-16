@@ -82,10 +82,16 @@ Nov 12, 2018
 
 Nov 13, 2018
 	Yesterday : Finished the default theme and started the dark theme.
-	Today     : Fished the dark theme and warm theme.
+	Today     : Finished the dark theme and warm theme.
 	Obstacles : Implementing colour changes to buttons.
 
 Nov 14, 2018
+	Yesterday : Finished the dark and warm themes
+	Today     : Tried different ways to implement rgba values into the dropdown bar menu.
+	Obstacles : Trying to hook up the menu buttons to an eventhandler
+
+Nov 15, 2018
 	Yesterday :
-	Today     :
-	Obstacles :
+	Today     : Implemented textFields for rgba values, fixed a bug where the polyline will not save if a new tool is clicked, 
+		    and fixed a bug with tempObjects staying after the object has been created, until a new tempObject is created
+	Obstacles : Getting an eventhandler for textFields, so the colour updates as the user types, instead of needing to press enter.
