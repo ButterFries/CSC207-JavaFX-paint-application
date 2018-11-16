@@ -415,6 +415,14 @@ ESTIMATE : 2 hours
 ISSUE    : When a new object is placed, the tempObject associated to it is not deleted until a new 
 tempObject is created, causing transluctent objects to be twice as opaque
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : Bug 16 : czarnec8
+NAME     : Updating selected colour automatically
+OWNER    : czarnec8
+PRIORITY : low
+ESTIMATE : 2 hours
+ISSUE    : When a new colour is added, enter needs to be pressed for it to update, instead of the colour being automatically changed.
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
