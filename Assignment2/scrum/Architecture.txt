@@ -47,7 +47,11 @@ DESIGN PATTERNS USED
 	shapes can be added as their own separate strategies, reducing conflict, and making them less reliant
 	on the PaintPanel. 
 	
-	Command: 
+	Command: The command design pattern was used in implementing the DrawCommand, 		which upon execution of its execute method called each Shape instances 
+	draw method specifically tailored to draw that type of Shape on the given
+	GraphicsContext. The ShapeOperator class was also implemented to store and
+	handle all instances of the DrawCommand and execute them when appropriate.
+	
 	
 	Singleton:
 	Composite:
