@@ -11,20 +11,21 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
+/**
+ * A PaintPanel has a model (PaintModel), a View, a mode and style fields:
+ * current_colour, fill, thickness. The View interacts with the PaintPanel to
+ * set its style fields based on user input. The PaintPanel is responsible
+ * for updating a canvas of a GraphicsContext of a Paint application. Since it
+ * implements the Observer interface, it updates itself with every change to the
+ * state of its model field (the class it observes).
+ *
+ */
 class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent> {
 
-	private int i = 0;
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
-	
 	private Color current_colour = Color.BLACK;
-	private String mode; // modifies how we interpret input (could be better?)
-	private Circle circle; // the circle we are building
-	private Rectangle rectangle; // the rectangle we are building 
-	private Squiggle Squiggle; // the squiggle in construction
-	private Polyline polyline = null;
-	private Line line = null;
+	private String mode; // modifies how we interpret input 
 	private boolean fill = false; // determines whether to draw filled in or outlined shapes
 	private int thickness = 1; 
 	
@@ -36,7 +37,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 	public PaintPanel(PaintModel model, View view) {
 
-		this.canvas = new Canvas(300, 300);
+		this.canvas = new Canvas(600, 700);
 		this.getChildren().add(this.canvas);
 		// The canvas is transparent, so the background color of the
 		// containing pane serves as the background color of the canvas.
@@ -53,7 +54,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 
 		this.view = view;
 	}
-
+	/**
+	 * Updates the canvas with every modification to the PaintModel's state, by
+	 * generates and executes a new set of ShapeCommand's based off the updated
+	 *  PaintModel's state.
+	 */
 	public void repaint() {
 
 		GraphicsContext g = this.canvas.getGraphicsContext2D();
@@ -62,14 +67,11 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		g.clearRect(0, 0, this.getWidth(), this.getHeight());
 		
 		g.setLineWidth(1);
-		//g.setStroke(Color.WHITE);
-		//g.setStroke(Color.BLUE);
-		//g.strokeText("i=" + i, 50, 75);
-		
-		//i = i + 1;
+	
 		
 		ArrayList<Shape> shapes = this.model.getShapes();
 		ShapeOperator operator = new ShapeOperator();
+		//add to the ShapeOperator commandQueue.
 		for (Shape s: shapes) {
 			operator.acceptCommand(new ModifierCommand(s, g));
 			operator.acceptCommand(new DrawCommand(s, g));
@@ -78,6 +80,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		
 		Shape[] tempShapes = this.model.getTempShapes();
 		ShapeOperator tempOperator = new ShapeOperator();
+		//Instantiate and add all commands on shapes in construction to commandQueue
 		for (Shape ts: tempShapes) {
 			if (ts != null) {
 				tempOperator.acceptCommand(new ModifierCommand(ts, g));
@@ -85,6 +88,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 			}
 			
 		}
+		//execute all these commands; in turn refreshing the canvas
 		operator.operateAll(); tempOperator.operateAll();
 		
 		

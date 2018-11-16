@@ -2,10 +2,15 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
+/**
+ * A SquareStrategy class has a Square, a PaintModel, a paint
+ * and style fields: a current_colour, a fill and a thickness.
+ * This class is called to Instantiate a Square Object based
+ * off of MouseEvents.
+ *
+ */
 public class SquareStrategy implements ShapeStrategy {
-	public PaintPanel paintPanel;
-	public Square square;
+	private Square square;
 	private PaintModel model;
 	private Color current_colour;
 	private boolean fill;
@@ -35,17 +40,9 @@ public class SquareStrategy implements ShapeStrategy {
 			mouseDragged(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			mousePressed(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_MOVED) {
-			mouseMoved(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
-			mouseClicked(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
 			mouseReleased(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
-			mouseEntered(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
-			mouseExited(event);
-		}
+		} 
 		
 	}
 	
@@ -61,9 +58,6 @@ public class SquareStrategy implements ShapeStrategy {
 		this.model.setTempSquare(this.square);
 	}
 	
-	private void mouseClicked(MouseEvent e) {
-		
-	}
 	
 	private void mouseReleased(MouseEvent e) {
 		Point diagonal = new Point((int) e.getX(), (int) e.getY());
@@ -73,17 +67,7 @@ public class SquareStrategy implements ShapeStrategy {
 		this.square = null;
 	}
 	
-	private void mouseEntered(MouseEvent e) {
-		
-	}
 	
-	private void mouseExited(MouseEvent e) {
-		
-	}
-	
-	private void mouseMoved(MouseEvent e) {
-		
-	}
 	
 
 }

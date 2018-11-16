@@ -2,7 +2,13 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
+/**
+ * A RectangleStrategy class has a Rectangle a PaintModel, 
+ * and style fields: a current_colour, a fill and a thickness.
+ * This class is called to Instantiate a Rectangle Object based
+ * off of MouseEvents.
+ *
+ */
 public class RectangleStrategy implements ShapeStrategy{
 
 	public PaintModel model;

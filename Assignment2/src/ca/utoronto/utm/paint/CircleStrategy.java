@@ -10,7 +10,13 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
+/**
+ * A CircleStrategy class has a Circle a PaintModel, 
+ * and style fields: a current_colour, a fill and a thickness.
+ * This class is called to Instantiate a Circle Object based
+ * off of MouseEvents.
+ *
+ */
 public class CircleStrategy implements ShapeStrategy{
 	private PaintModel model;
 	private Circle circle;
@@ -49,7 +55,8 @@ public class CircleStrategy implements ShapeStrategy{
 			mouseReleased(event);
 		}
 	}
-	
+	// We update the radius of this circle in construction as the mouse is dragged.
+	// Also by setTempCircle we update the state of the model.
 	private void mouseDragged(MouseEvent e) {
 			int length = Math.abs((int)this.circle.getCentre().getX() - (int)e.getX());
 			int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
@@ -58,13 +65,15 @@ public class CircleStrategy implements ShapeStrategy{
 			this.model.setTempCircle(this.circle);
 			
 		}
-	
+	//Like all other shapes except for Polyline after we instantiate a new 
+	// Circle after a press of the mouse.
 	private void mousePressed(MouseEvent e) {
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		int radius = 0;
 		this.circle = new Circle(centre, radius, current_colour, fill, thickness);
 	}
-	
+	// Like all other shapes except for Polyline after a release this Circle's
+	// attributes are finalized and it is added to model's shapes ArrayList.
 	private void mouseReleased(MouseEvent e) {
 		int length = Math.abs((int)this.circle.getCentre().getX() - (int)e.getX());
 		int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
