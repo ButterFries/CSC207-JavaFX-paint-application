@@ -151,7 +151,7 @@ ISSUE    : The first click should specify the center of the circle, with
            implementation.
 --------------------------------------------------------------------------
 
-# Sprint 2 Nov 9, 2018
+# Sprint 2 Nov 7, 2018
 # Sprint 2 Backlog UserStories go below
 --------------------------------------------------------------------------
 TYPE     : USER STORY 10 : delisiom
@@ -202,3 +202,22 @@ Note that you can associate text with a button, even if you
 display an ImageIcon. The string attached to the button causes the right choice 
 of object creation.
 --------------------------------------------------------------------------
+
+# Sprint 3 Nov 11, 2018
+# Sprint 2 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : Bug 12 : pamalpad
+NAME     : Color auto changes with new shape
+OWNER    :  
+PRIORITY :medium
+ESTIMATE :
+ISSUE    : Other already drawn shapes change to new color after selecting new color
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 13 : pamalpad
+NAME     : Implement clear all feature
+OWNER    : 
+PRIORITY : low
+ESTIMATE : 
+ISSUE    : Clicking the Clear Canvas button in the edit menu on the toolbar will remove all drawn shapes from the canvas.
+-------------------------------------------------------------------------- 
