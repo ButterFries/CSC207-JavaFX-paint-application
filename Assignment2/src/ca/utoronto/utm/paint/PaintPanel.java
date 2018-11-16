@@ -18,7 +18,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	private PaintModel model; // slight departure from MVC, because of the way painting works
 	private View view; // So we can talk to our parent or other components of the view
 	
-	private Color current_colour;
+	private Color current_colour = Color.BLACK;
 	private String mode; // modifies how we interpret input (could be better?)
 	private Circle circle; // the circle we are building
 	private Rectangle rectangle; // the rectangle we are building 
@@ -46,7 +46,7 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 		this.addEventHandler(MouseEvent.ANY, this);
 
 		this.mode = "Circle"; // bad code here?
-		this.strategy = new CircleStrategy(model, fill, thickness);
+		this.strategy = new CircleStrategy(model, fill, thickness, current_colour);
 
 		this.model = model;
 		this.model.addObserver(this);
@@ -151,5 +151,9 @@ class PaintPanel extends StackPane implements Observer, EventHandler<MouseEvent>
 	public void handle(MouseEvent event) {
 	
 		this.strategy.mEvent(event);
+	}
+
+	public Color getColour() {
+		return this.current_colour;
 	}
 }
