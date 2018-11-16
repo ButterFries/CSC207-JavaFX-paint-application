@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CustomMenuItem;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -171,6 +170,10 @@ public class View implements EventHandler<ActionEvent> {
 			custom.getStyleClass().add(".custom-menu-item");
 			menu.getItems().add(custom);
 			
+			text.textProperty().addListener((observer, oldText, newText) -> { 
+				updateColour(); 
+			});
+			
 			this.colours.add(text);
 			
 		}
@@ -180,9 +183,9 @@ public class View implements EventHandler<ActionEvent> {
 		menuBar.getMenus().add(menu);
 		
 		// Another menu for Fill style
-
+		
 		menu = new Menu("Fill Style");
-				
+		
 		menuItem = new MenuItem("solid");
 		menuItem.setOnAction(this);
 		menuItem.setId("fill_style solid");
@@ -212,6 +215,21 @@ public class View implements EventHandler<ActionEvent> {
 		
 		return menuBar;
 	}
+	
+	public void updateColour() {
+		try {
+			
+			Color colour = new Color(Math.max(0, Math.min(Double.parseDouble(colours.get(0).getText()), 1)), 
+									 Math.max(0, Math.min(Double.parseDouble(colours.get(1).getText()), 1)), 
+									 Math.max(0, Math.min(Double.parseDouble(colours.get(2).getText()), 1)), 
+									 Math.max(0, Math.min(Double.parseDouble(colours.get(3).getText()), 1)));
+			
+			paintPanel.setColour(colour);
+			System.out.println(Double.parseDouble(colours.get(1).getText()));
+		
+		} catch(NumberFormatException e) { }
+	}
+	
 
 	@Override
 	public void handle(ActionEvent event) {
@@ -232,19 +250,19 @@ public class View implements EventHandler<ActionEvent> {
 			
 			if(id[1].equals("default")) {
 				scene.getStylesheets().add(
-						getClass().getResource("ThemeDefault.css").toExternalForm()
+					getClass().getResource("ThemeDefault.css").toExternalForm()
 				);
 			}
 			
 			else if(id[1].equals("warm")) {
 				scene.getStylesheets().add(
-						getClass().getResource("ThemeWarm.css").toExternalForm()
+					getClass().getResource("ThemeWarm.css").toExternalForm()
 				);
 			}
 			
 			else if(id[1].equals("night")) {
 				scene.getStylesheets().add(
-						getClass().getResource("ThemeNight.css").toExternalForm()
+					getClass().getResource("ThemeNight.css").toExternalForm()
 				);
 			}
 			
@@ -253,17 +271,7 @@ public class View implements EventHandler<ActionEvent> {
 		
 		if (id[0].equals("colour")) {
 			
-			try {
-			
-				Color colour = new Color(Double.parseDouble(colours.get(0).getText()), 
-										 Double.parseDouble(colours.get(1).getText()), 
-										 Double.parseDouble(colours.get(2).getText()), 
-										 Double.parseDouble(colours.get(3).getText()));
-				
-				paintPanel.setColour(colour);
-				System.out.println(Double.parseDouble(colours.get(1).getText()));
-			
-			} catch(NumberFormatException e) { }
+			updateColour();
 		
 		}
 		
