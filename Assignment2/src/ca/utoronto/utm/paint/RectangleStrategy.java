@@ -13,10 +13,11 @@ public class RectangleStrategy implements ShapeStrategy{
 	private boolean fill;
 	private int thickness;
 	
-	public RectangleStrategy(PaintModel model, boolean fill, int thickness) {
+	public RectangleStrategy(PaintModel model, boolean fill, int thickness, Color current_colour) {
 		this.model = model;
 		this.fill = fill;
 		this.thickness = thickness;
+		this.current_colour = current_colour;
 	}
 	public void setColour(Color current_colour) {
 		this.current_colour = current_colour;
