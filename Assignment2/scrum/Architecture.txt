@@ -52,10 +52,6 @@ DESIGN PATTERNS USED
 	GraphicsContext. The ShapeOperator class was also implemented to store and
 	handle all instances of the DrawCommand and execute them when appropriate.
 	
-	
-	Singleton:
-	Composite:
-	
 	Factory: The factory design pattern is used to return the appropriate strategy
 	for the shape chosen from clicking its respective button. ShapeFactory returns the 
 	correct ShapeStrategy subclass from the string passed into it. The PaintPanels current strategy is then
@@ -64,8 +60,5 @@ DESIGN PATTERNS USED
 	Adding new shapes to the ShapeChooserPanel is simpler too, as the ShapeStrategy needed
 	can just be added to ShapeFactory. 
 	
-	Builder:
-	Observer/Observable:
-	... (any others you find useful) ...
 
 OTHER ARCHITECTURE DISCUSSIONS
