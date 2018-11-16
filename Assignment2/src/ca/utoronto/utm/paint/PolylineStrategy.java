@@ -29,6 +29,9 @@ public class PolylineStrategy implements ShapeStrategy{
 	}
 
 	public void stopPolyline() {
+		
+		if (this.polyline == null) return;
+		
 		this.model.addPolyline(this.polyline);
 		this.polyline = null; this.line = null;
 	}
