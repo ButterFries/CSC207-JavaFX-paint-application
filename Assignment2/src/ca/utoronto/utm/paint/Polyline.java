@@ -20,6 +20,11 @@ public class Polyline extends Shape {
 	public ArrayList<Line> getLines() {
 		return lines;
 	}
+	
+	public Line popLine() {
+		if (lines.size() < 1) return null;
+		return lines.remove(lines.size()-1);
+	}
 
 
 	public void addLine(Line line) {

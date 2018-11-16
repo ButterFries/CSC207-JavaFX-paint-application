@@ -56,6 +56,7 @@ public class SquiggleStrategy implements ShapeStrategy {
 
 	private void mouseReleased(MouseEvent e) {
 		this.squiggle.extend(new Point((int) e.getX(), (int) e.getY()));
+		this.model.setTempSquiggle(null);
 		this.model.addSquiggle(this.squiggle);
 		this.squiggle = null;
 		

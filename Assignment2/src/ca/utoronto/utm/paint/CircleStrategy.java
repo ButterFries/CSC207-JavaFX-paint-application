@@ -79,6 +79,7 @@ public class CircleStrategy implements ShapeStrategy{
 		int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
 		int radius = (int)Math.sqrt(length*length + height*height);
 		this.circle.setRadius(radius);
+		this.model.setTempCircle(null);
 		this.model.addCircle(this.circle);
 		this.circle = null;
 	}

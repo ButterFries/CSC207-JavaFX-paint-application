@@ -33,6 +33,7 @@ public class PolylineStrategy implements ShapeStrategy{
 		if (this.polyline == null) return;
 		
 		this.model.addPolyline(this.polyline);
+		this.model.setTempPolyline(null);
 		this.polyline = null; this.line = null;
 	}
 	
@@ -64,8 +65,8 @@ public class PolylineStrategy implements ShapeStrategy{
 			this.model.setTempPolyline(this.polyline);
 			Line newLine = new Line(point, this.line.getColour(), this.line.getThickness());
 			this.line = newLine;
+			
 		}
-
 		
 	}
 	
@@ -73,6 +74,7 @@ public class PolylineStrategy implements ShapeStrategy{
 		Point point = new Point((int) e.getX(),(int) e.getY());
 		if (this.polyline != null) {
 			this.line.setEnd(point);
+			this.polyline.popLine();
 			this.polyline.addLine(this.line);
 			this.model.setTempPolyline(this.polyline);
 		}

@@ -69,6 +69,7 @@ public class RectangleStrategy implements ShapeStrategy{
 	private void mouseReleased(MouseEvent e) {
 		Point diagonal = new Point((int) e.getX(), (int) e.getY());
 		this.rectangle.setDiagonal(diagonal);
+		this.model.setTempRect(null);
 		this.model.addRectangle(this.rectangle);
 		this.rectangle = null;
 	}

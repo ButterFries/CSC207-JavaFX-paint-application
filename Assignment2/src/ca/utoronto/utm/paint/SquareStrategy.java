@@ -68,6 +68,7 @@ public class SquareStrategy implements ShapeStrategy {
 		Point diagonal = new Point((int) e.getX(), (int) e.getY());
 		this.square.setDiagonal(diagonal);
 		this.model.addSquares(this.square);
+		this.model.setTempSquare(null);
 		this.square = null;
 	}
 	
