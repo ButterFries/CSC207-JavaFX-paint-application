@@ -398,6 +398,14 @@ PRIORITY : low
 ESTIMATE : 4 hours
 ISSUE    : Implement textfields to let the user set any rgb colour
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : Bug 14 : czarnec8
+NAME     : Polyline crash
+OWNER    : czarnec8
+PRIORITY : high
+ESTIMATE : 1 hour
+ISSUE    : Program crashes if polyline is de-selected while no polyline is drawn
+--------------------------------------------------------------------------
 
 # COMPLETED USER STORIES/BUGS BELOW ###########################################
 
