@@ -25,6 +25,7 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 
 		int row = 0;
 		for (String label : buttonLabels) {
+			//Retrieves the icon image files from this package
 			Image icon = new Image(getClass().getResourceAsStream(label +"Icon.png"));
 			Button button = new Button(label);
 			ImageView iIcon = new ImageView(icon);

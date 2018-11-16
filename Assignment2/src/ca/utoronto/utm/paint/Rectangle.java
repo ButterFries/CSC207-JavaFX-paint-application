@@ -2,10 +2,16 @@ package ca.utoronto.utm.paint;
 
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.*;
+/**
+ * A Rectangle is a Shape with an origin Point and a diagonal Point.
+ * It also contains aesthetic attributes like its thickness,
+ * colour and fill. The origin Point may lie anywhere on the Rectangle.
+ */
 
 public class Rectangle extends Shape {
 	protected Point origin, diagonal;
-	protected String context;
+	// gives context to where origin Point lies on the Rectangle. For example: "topleft"
+	protected String context; 
 	protected int height, width;
 	protected int thickness = 1;
 	protected Color colour;
@@ -30,7 +36,10 @@ public class Rectangle extends Shape {
 		this.assignContext();
 	}
 	
-	//helper for repaint()'s strokeRect() method
+	/**
+	 * @return Based on this Rectangles context field, it computes
+	 * and returns the upper left Point of the Rectangle.
+	 */
 	public Point findTopLeft() {
 		int x, y;
 		switch (this.getContext()) {
@@ -47,15 +56,22 @@ public class Rectangle extends Shape {
 		default:
 			return origin;}
 	}
-	
+	/**
+	 * Updates the height and width fields. (Usually called after a 
+	 * change in origin or diagonal Points).
+	 */
 	public void updateDim() {
 		this.height = Math.abs(this.origin.getY() - this.diagonal.getY());
 		this.width = Math.abs(this.origin.getX() - this.diagonal.getX());
 	}
-	// determines where the origin Point lies on the rectangle
+	
+	/**
+	 * Sets the Context field of this Rectangle based on the coordinates of
+	 * the Diagonal Point and the Origin Point.
+	 */
 	public void assignContext() {
-		int deltaY = origin.getY() - diagonal.getY();
-		int deltaX = origin.getX() - diagonal.getX();
+		int deltaY = origin.getY() - diagonal.getY(); // change in Y value between origin and diagonal
+		int deltaX = origin.getX() - diagonal.getX(); // change in X value between origin and diagonal
 		if (deltaX <= 0 && deltaY <= 0) {
 			this.context = "topleft";
 		} else if (deltaX >= 0 && deltaY <= 0) {
@@ -140,7 +156,12 @@ public class Rectangle extends Shape {
 		g.setLineWidth(this.thickness);
 		g.setFill(this.colour);
 	}
-	
+	/**
+	 * @param g the GraphicsContext object that this
+	 * Rectangle object is to be displayed on.
+	 * @return generate a graphical representation of 
+	 * this Rectangle object displayed on g.
+	 */
 	public void draw(GraphicsContext g) {
 		Point topLeft = this.findTopLeft();
 		int h = this.height; int w = this.width;

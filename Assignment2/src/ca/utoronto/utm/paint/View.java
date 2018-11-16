@@ -17,6 +17,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * A View has a model where the Paint applications Shape objects are stored,
+ * a paintPanel where ShapeCommands are executed, a shapeChooserPanel where
+ * ShapeStrategys are set, and a scene. This object defines the graphical
+ * user interface of the Menu's and Button objects on the main window of
+ * the Paint application. It also receives and processes commands from user
+ * input.
+ *
+ */
 public class View implements EventHandler<ActionEvent> {
 
 	private PaintModel model;
@@ -289,10 +298,11 @@ public class View implements EventHandler<ActionEvent> {
 			catch(NumberFormatException e) { }
 		}
 		if (id[0].equals("edit") && id[1].equals("undo")) {
-			model.addDormant();
+			model.addDormant(); // the last shape generated is removed from PaintModel's shapes array
 		}
 		if (id[0].equals("edit") && id[1].equals("redo")) {
-			model.delDormant();
+			model.delDormant(); // the last shape added to PaintModel's dormantShapes ArrayList is removed
+								// and added to the shapes ArrayList
 		}
 		if (id[0].equals("edit") && id[1].equals("clear")) {
 			model.clearAll();

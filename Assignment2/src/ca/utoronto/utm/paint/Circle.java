@@ -1,6 +1,12 @@
 
 package ca.utoronto.utm.paint;
 import javafx.scene.canvas.*;
+/**
+ * A Circle is a Shape with a centre Point and a radius integer.
+ * It also contains aesthetic attributes like its thickness,
+ * colour and fill.
+ */ 
+
 import javafx.scene.paint.Color;
 
 public class Circle extends Shape {
@@ -70,11 +76,22 @@ public class Circle extends Shape {
 		this.colour = colour;
 	}
 	
+	/**
+	 * Sets the modification to the graphics context
+	 * based on the attributes thickness, fill and
+	 * colour of this Circle.
+	 */
 	public void setMod(GraphicsContext g) {
 		g.setStroke(this.colour);
 		g.setLineWidth(this.thickness);
 		g.setFill(this.colour);
 	}
+	/**
+	 * @param g the GraphicsContext object that this
+	 * Circle object is to be displayed on.
+	 * @return generate a graphical representation of 
+	 * this Circle object displayed on g.
+	 */
 	public void draw(GraphicsContext g) {
 		int x = this.centre.getX() - this.radius;
 		int y = this.centre.getY() - this.radius;

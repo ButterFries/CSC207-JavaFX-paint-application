@@ -2,6 +2,11 @@
 package ca.utoronto.utm.paint;
 
 import javafx.scene.paint.Color;
+/**
+ * A data Point in an two dimension x-y Plane with attributes 
+ * x (a coordinate) and y (a coordinate) and style attribute colour.
+ *
+ */
 
 public class Point {
 	
