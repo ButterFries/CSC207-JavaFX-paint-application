@@ -1,9 +1,13 @@
 package ca.utoronto.utm.paint;
 import javafx.scene.canvas.*;
+
 import java.util.*;
 
 import javafx.scene.paint.Color;
-
+/**
+ * A Squiggle is a type of Shape and is a collection of Point objects, 
+ * with style fields: thickness, fill, colour.
+ */
 public class Squiggle extends Shape {
 	ArrayList<Point> points = new ArrayList<>();
 	private int thickness = 1;
@@ -49,6 +53,11 @@ public class Squiggle extends Shape {
 	public void extend(Point p) {
 		this.points.add(p);
 	}
+	/**
+	 * @return An ArrayList of Arrays of size two holding Point objects. Each Array of size two
+	 * holds a pair of adjacent Points from the points field of this Squiggle. Primarily
+	 * used in drawing a Solid fill version of Squiggle in the draw() method.
+	 */
 	public ArrayList<Point[]> adjacentPairs(){
 		ArrayList<Point[]> adjPairs = new ArrayList<Point[]>();
 		for (int i = 1; i < this.points.size(); i++) {
@@ -62,7 +71,12 @@ public class Squiggle extends Shape {
 		g.setLineWidth(this.thickness);
 		g.setStroke(this.colour);
 	}
-	
+	/**
+	 * @param g the GraphicsContext object that this
+	 * Squiggle object is to be displayed on.
+	 * @return generate a graphical representation of 
+	 * this Squiggle object displayed on g.
+	 */
 	public void draw(GraphicsContext g) {
 		
 		if (this.fill) {

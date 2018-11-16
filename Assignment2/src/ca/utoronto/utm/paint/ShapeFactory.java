@@ -1,5 +1,11 @@
 package ca.utoronto.utm.paint;
 
+/**
+ * A ShapeFactory has a View and is used to manufacture (instantiate) 
+ * different Instances of ShapeStrategy based on commands from the view.
+ *
+ */
+
 public class ShapeFactory {
 	
 	private View view;
@@ -8,7 +14,10 @@ public class ShapeFactory {
 		this.view = view;
 	}
 	
-	
+	/**
+	 * @param command String representation of the desired ShapeStrategy Object 
+	 * @return A ShapeStrategy object corresponding to command.
+	 */
 	public ShapeStrategy getShapeStrategy (String command) {
 		PaintModel paintModel = this.view.getPaintPanel().getModel();
 		boolean fill = this.view.getPaintPanel().getFill();

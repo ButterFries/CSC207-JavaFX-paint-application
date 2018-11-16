@@ -44,16 +44,8 @@ public class CircleStrategy implements ShapeStrategy{
 			mouseDragged(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_PRESSED) {
 			mousePressed(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_MOVED) {
-			mouseMoved(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
-			mouseClicked(event);
 		} else if (event.getEventType() == MouseEvent.MOUSE_RELEASED) {
 			mouseReleased(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
-			mouseEntered(event);
-		} else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
-			mouseExited(event);
 		}
 	}
 	
@@ -67,14 +59,12 @@ public class CircleStrategy implements ShapeStrategy{
 		}
 	
 	private void mousePressed(MouseEvent e) {
-		// Problematic notion of radius and centre!!
 		Point centre = new Point((int) e.getX(), (int) e.getY());
 		int radius = 0;
 		this.circle = new Circle(centre, radius, current_colour, fill, thickness);
 	}
 	
 	private void mouseReleased(MouseEvent e) {
-		// Problematic notion of radius and centre!!
 		int length = Math.abs((int)this.circle.getCentre().getX() - (int)e.getX());
 		int height = Math.abs((int)this.circle.getCentre().getY() - (int)e.getY());
 		int radius = (int)Math.sqrt(length*length + height*height);
@@ -83,21 +73,7 @@ public class CircleStrategy implements ShapeStrategy{
 		this.circle = null;
 	}
 	
-	private void mouseEntered(MouseEvent e) {
-		
-	}
 	
-	private void mouseExited(MouseEvent e) {
-		
-	}
-	
-	private void mouseMoved(MouseEvent e) {
-		
-	}
-	
-	private void mouseClicked(MouseEvent e) {
-		
-	}
 
 
 }

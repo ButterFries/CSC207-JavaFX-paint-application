@@ -1,6 +1,11 @@
 package ca.utoronto.utm.paint;
 
 import javafx.scene.paint.Color;
+/**
+ * A Line has an origin Point and an end Point and style
+ * attributes thickness and colour. It is primarily used
+ * by the Polyline Shape.
+ */
 
 public class Line {
 	private Point origin, end;

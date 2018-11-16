@@ -1,137 +1,85 @@
 package ca.utoronto.utm.paint;
 
 import java.util.ArrayList;
-import java.util.Observable;
 
+import java.util.Observable;
+/**
+ * A PaintModel stores all Shape objects to drawn on a
+ * PaintPanel.
+ */
 public class PaintModel extends Observable {
 
-	private ArrayList<Point> points = new ArrayList<Point>();
-	/*private ArrayList<Circle> circles = new ArrayList<Circle>();
-	private ArrayList<Rectangle> rectangles = new ArrayList<Rectangle>();
-	private ArrayList<Squiggle> squiggles = new ArrayList<Squiggle>();
-
-	private ArrayList<Polyline> polylines = new ArrayList<Polyline>(); */
-	//private ArrayList<Square> squares = new ArrayList<Square>(); 
-	//private ArrayList<Polyline> polylines = new ArrayList<Polyline>();
-	//private ArrayList<Square> squares = new ArrayList<Square>();
-
 	private ArrayList<Shape> shapes = new ArrayList<Shape>();
+	//dormant shapes are shapes that have been erased due to an undo 
 	private ArrayList<Shape> dormantShapes = new ArrayList<Shape>();
+	//tempShapes are shapes currently in construction in the PaintPanel
 	private Shape[] tempShapes = new Shape[5];
-	/*private Circle tempCircle = null;
-	private Rectangle tempRect = null;
-	private Squiggle tempSquiggle = null;
-
-	/*private Polyline tempPolyline = null; 
-	private Square tempSquare = null; 
-	private Polyline tempPolyline = null;
-	private Square tempSquare = null;*/
 
 
-	public void addPoint(Point p) {
-		this.points.add(p);
-		this.setChanged();
-		this.notifyObservers();
-	}
-
-	public ArrayList<Point> getPoints() {
-		return points;
-	}
 
 	public void addCircle(Circle c) {
-		//this.circles.add(c);
 		this.shapes.add(c);
 		this.setChanged();
 		this.notifyObservers();
 	}
 	
-	//public ArrayList<Circle> getCircles() {
-		//return circles;}
 
 	
 	public void setTempCircle(Circle c) {
-		//this.tempCircle = c;
 		this.tempShapes[0] = c;
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public Circle getTempCircle() {
-		//return this.tempCircle;}
+	
 	
 	public void addRectangle(Rectangle r) {
-		//this.rectangles.add(r);
 		this.shapes.add(r);
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public ArrayList<Rectangle> getRectangles() {
-		//return rectangles;}
 	
 
 	public void setTempRect(Rectangle r) {
-		//this.tempRect = r;
 		this.tempShapes[1] = r;
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public Rectangle getTempRect() {
-		//return this.tempRect;}
-	
-	//public ArrayList<Squiggle> getSquiggles() {
-		//return this.squiggles;}
 	
 	public void addSquiggle(Squiggle s) {
-		//this.squiggles.add(s);
 		this.shapes.add(s);
 		this.setChanged();
 		this.notifyObservers();
 
 	}
-	//public Squiggle getTempSquiggle() {
-		//return tempSquiggle;}
 	
 	public void setTempSquiggle(Squiggle s) {
-		//this.tempSquiggle = s;
 		this.tempShapes[2] = s;
 		this.setChanged();
 		this.notifyObservers();
 		
 	}
 	public void setTempPolyline(Polyline p) {
-		//this.tempPolyline = p;
 		this.tempShapes[3] = p;
 		this.setChanged();
 		this.notifyObservers();
 	}
 	public void addPolyline(Polyline p) {
-		//this.polylines.add(p);
 		this.shapes.add(p);
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public Polyline getTempPolyline() {
-		//return this.tempPolyline;}
-	
-	//public ArrayList<Polyline> getPolylines(){
-	//	return this.polylines;}
 	
 	public void addSquares(Square s) {
-		//this.squares.add(s);
 		this.shapes.add(s);
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public ArrayList<Square> getSquares(){
-		//return this.squares;}
 
 	public void setTempSquare(Square p) {
-		//this.tempSquare = p;
 		this.tempShapes[4] = p;
 		this.setChanged();
 		this.notifyObservers();
 	}
-	//public Square getTempSquare() {
-		//return this.tempSquare;}
 
 	public ArrayList<Shape> getShapes() {
 		return shapes;
@@ -140,6 +88,11 @@ public class PaintModel extends Observable {
 	public Shape[] getTempShapes() {
 		return tempShapes;
 	}
+	/**
+	 * Appends the last Shape in the shapes ArrayList to
+	 * the dormantShapes ArrayList and removes that same 
+	 * Shape from the shapes ArrayList.
+	 */
 	public void addDormant() {
 		if (shapes.size() > 0) {
 			Shape current = shapes.get(shapes.size() - 1);
@@ -149,6 +102,11 @@ public class PaintModel extends Observable {
 			this.notifyObservers();
 		}
 	}
+	/**
+	 * Deletes the most recent shape that was added to dormantShapes 
+	 * ArrayList (only if it can - is of size > 0) and appends this Shape
+	 * to the shapes ArrayList. 
+	 */
 	public void delDormant() {
 		if (dormantShapes.size() > 0) {
 			Shape current = dormantShapes.get(dormantShapes.size() - 1);
@@ -157,12 +115,17 @@ public class PaintModel extends Observable {
 			this.notifyObservers();
 		}
 	}
+	/**
+	 * Assigns null to every index of tempShapes array.
+	 */
 	public void resetTemps() {
 		for(int i=0; i < tempShapes.length; i++) {
 			tempShapes[i] = null;
 		}
 	}
-	
+	/**
+	 * Updates the shapes ArrayList by removing all its elements.
+	 */
 	public void clearAll() {
 		shapes.clear();
 		this.resetTemps();

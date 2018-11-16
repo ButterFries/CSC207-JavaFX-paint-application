@@ -1,5 +1,8 @@
 package ca.utoronto.utm.paint;
 import java.util.ArrayList;
+/** 
+ *A ShapeOperator stores and operates (executes) a commandQueue of ShapeCommands.
+ */
 
 public class ShapeOperator {
 	
@@ -11,7 +14,10 @@ public class ShapeOperator {
 	public void acceptCommand(ShapeCommand command) {
 		this.commandQueue.add(command);
 	}
-
+	/**
+	 * For every ShapeCommand held in commandQueue, operateAll executes
+	 * each individual command.
+	 */
 	public void operateAll() {
 		
 		for (ShapeCommand command: this.commandQueue) {

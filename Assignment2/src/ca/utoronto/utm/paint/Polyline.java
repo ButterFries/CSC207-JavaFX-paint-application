@@ -1,9 +1,18 @@
 package ca.utoronto.utm.paint;
 import javafx.scene.canvas.*;
+
 import javafx.scene.paint.Color;
 import java.util.*;
+/**
+ * A Polyline is a type of Shape, which is essentially a collection
+ * of conjoined LineSegment objects. It has style attributes
+ * thickness, colour and fill.
+ *
+ */
 
 public class Polyline extends Shape {
+	
+	//the collection of LineSegment objects making up this Polyline
 	private ArrayList<Line> lines = new ArrayList<Line>();
 	private int thickness = 1;
 	private Color colour = Color.WHITE;
@@ -55,6 +64,12 @@ public class Polyline extends Shape {
 		g.setStroke(this.colour);
 		g.setLineWidth(this.thickness);
 	}
+	/**
+	 * @param g the GraphicsContext object that this
+	 * Polyline object is to be displayed on.
+	 * @return generate a graphical representation of 
+	 * this Polyline object displayed on g.
+	 */
 	public void draw(GraphicsContext g) {
 		
 		ArrayList<Line> lines = this.lines;
