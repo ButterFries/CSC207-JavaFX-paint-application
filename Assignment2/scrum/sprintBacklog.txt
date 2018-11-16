@@ -2,11 +2,136 @@
 # to the appropriate Sprint below, after the 
 # Sprint Planning Meeting.
 
-# Sprint 1 Dec 28, 2018
+# Sprint 1 Oct 28, 2018
 # Sprint 1 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : delisiom
+NAME     : Draw Rectangle
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+AS A     : user
+I WANT   : To click on one corner of a rectangle, drag, and release to 
+		   specify two corners of a rectangle to be drawn in the current style.
+SO THAT  : I can add rectangles to my canvas
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 4 : delisiom
+NAME     : Draw Rectangle Feedback
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+AS A     : user
+I WANT   : Similarly to Draw Circle Feedback, display the rectangle in mid construction.
+SO THAT  : I can see the rectangle I am about to build on release of the mouse button.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 1 : delisiom
+NAME     : Icons instead of text for drawing mode selection
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Would be nice to have icons instead of "Circle", "Rectangle", ...
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 2 : delisiom
+NAME     : Drawing selection mode not indicated
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Currently ,you can't tell which mode "Circle", "Rectangle", ...
+           is currently selected. Is JButton correct, is there a way
+           to highlight the currently selected mode?
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 3, 2018
 # Sprint 2 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : USER STORY 8 : delisiom
+NAME     : Implement Poly Line
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Click and drag mouse to create connected line segments, to 
+finish a polyline click on a point already drawn. 
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 9 : delisiom
+NAME     : Implement Square
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Press and drag to create a square with your first click 
+indicating either to top left or top right point of a square depending
+on direction of the drag.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 7 : delisiom
+NAME     : Architecture for drawing shapes can be improved
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : The architecture can be improved if we implement the Command Design 
+Pattern to draw shapes as follows:
+
+The PaintModel should use the command design pattern. 
+That is, each shape knows how to draw itself, so there is a single list of 
+DrawingCommands maintained by the PaintModel and used by the PaintPanel.
+repaint() simply asks the PaintModel to ask command to execute(g).
+The simplest way to make this happen is to make each shape implement the 
+DrawingCommand interface which requires execute(g) to be implemented.
+Well sort of.
+
+NOTE: The PaintModel does know how to logically draw itself, so does
+know about strokes and pen colors etc. Depending on how much you want
+to split off the logical from the GUI, it may not have to know how to 
+draw on the screen. This is a subtle difference. For example, the
+following logically describes a scene, without actually knowing
+how to draw it on the screen ...
+
+Color = green
+Fill = off
+Border = on
+BorderWidth = 10
+Circle radius 10 at 12,15
+Color = red
+Fill = on
+FillColor = black
+Border = on
+BorderWidth = 7
+Square width 20 at 100,200
+
+If you want to build a more 'logical' PaintModel, you can consider ...
+
+1) Create a mirror hierarchy for Shape, this mirror hirerachy 
+has things like DrawableCircle which has a Circle. The DrawableCircle
+knows how to draw the instance of Circle it holds. Each Shape will
+still need information about its color, and stroke, one way or another.
+
+OR
+
+2) Lookup and apply the Visitor design pattern to the more logical
+PaintModel.
+
+--------------------------------------------------------------------------
 
 # Sprint 2 Nov 9, 2018
 # Sprint 2 Backlog UserStories go below
+--------------------------------------------------------------------------
+TYPE     : USER STORY 10 : delisiom
+NAME     : Implement Undo
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Clicking the undo option in the edit menu will cause the last
+Shape created in the command queue to be erased from the current screen.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 11 : delisiom
+NAME     : Implement Redo
+OWNER    : 
+PRIORITY :
+ESTIMATE : 
+ISSUE    : Clicking the redo option in the edit menu will cause the last
+Shape called by undo in the undo queue to be displayed on the screen.
+--------------------------------------------------------------------------
