@@ -78,21 +78,7 @@ public class View implements EventHandler<ActionEvent> {
 		// A menu for File
 
 		menu = new Menu("File");
-
-		menuItem = new MenuItem("New");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Open");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Save");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menu.getItems().add(new SeparatorMenuItem());
-
+		
 		menuItem = new MenuItem("Exit");
 		menuItem.setOnAction(this);
 		menu.getItems().add(menuItem);
@@ -124,20 +110,6 @@ public class View implements EventHandler<ActionEvent> {
 		// Another menu for Edit
 
 		menu = new Menu("Edit");
-
-		menuItem = new MenuItem("Cut");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Copy");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menuItem = new MenuItem("Paste");
-		menuItem.setOnAction(this);
-		menu.getItems().add(menuItem);
-
-		menu.getItems().add(new SeparatorMenuItem());
 
 		menuItem = new MenuItem("Undo");
 		menuItem.setOnAction(this);
@@ -234,7 +206,6 @@ public class View implements EventHandler<ActionEvent> {
 									 Math.max(0, Math.min(Double.parseDouble(colours.get(3).getText()), 1)));
 			
 			paintPanel.setColour(colour);
-			System.out.println(Double.parseDouble(colours.get(1).getText()));
 		
 		} catch(NumberFormatException e) { }
 	}

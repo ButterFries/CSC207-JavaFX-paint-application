@@ -1,15 +1,8 @@
 package ca.utoronto.utm.paint;
 
-import javafx.event.EventHandler;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 /**
  * A CircleStrategy class has a Circle a PaintModel, 
  * and style fields: a current_colour, a fill and a thickness.

@@ -4,14 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-//
-import javafx.scene.Scene; 
-import javafx.scene.control.Button; 
- import javafx.scene.image.*; 
-import java.io.*; 
- //import javafx.scene.control.Label; 
-import javafx.stage.Stage; 
-import java.net.*; 
+import javafx.scene.image.*; 
 
 public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEvent> {
 
@@ -52,6 +45,5 @@ public class ShapeChooserPanel extends GridPane implements EventHandler<ActionEv
 		
 		this.view.getPaintPanel().setStrat(factory.getShapeStrategy(command));
 		
-		System.out.println(command);
 	}
 }
